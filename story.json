@@ -1,0 +1,478 @@
+{
+  "inicio": {
+    "title": "El camino a Trigoseco",
+    "text": [
+      "El sol muere al oeste de Demacia, tiñendo de carmesí los campos del Camino del Heno. Has venido a investigar la desaparición total de las cosechas y de las patrullas que fueron enviadas a este valle.",
+      "A lo lejos, el trigal roza los hombros del camino. No se oyen cigarras, ni aves, ni viento. Solo una inmensidad dorada e inmóvil.",
+      "Entre las espigas sobresale un espantapájaros de paja seca y saco torcido. Sientes, de forma irracional pero visceral, que no estaba mirando hacia la entrada antes de que pestañearas."
+    ],
+    "choices": [
+      {
+        "label": "Buscar la choza del guardabosques cerca del lindero",
+        "next": "guardabosques"
+      },
+      {
+        "label": "Adentrarte directo en el trigo antes de que caiga la noche",
+        "next": "entrada_dia"
+      },
+      {
+        "label": "Esperar a la oscuridad para moverte sin ser visto",
+        "next": "entrada_noche",
+        "fx": {
+          "sanity": -5
+        }
+      }
+    ]
+  },
+  "guardabosques": {
+    "title": "La choza en el borde",
+    "text": [
+      "El viejo Ardyn no abre la puerta del todo. Sostiene un hacha desgastada y sus ojos reflejan un pánico que no intenta ocultar. Huele a sudor agrio y a incienso quemado.",
+      "«Si entras ahí, no hables», susurra con la voz rota. «Escucha bien: no respondas si escuchas tu nombre. No sigas voces conocidas en el trigo. Y sobre todo... no mires demasiado tiempo a los espantapájaros. No son adornos. Nunca fueron adorno.»",
+      "Te entrega un amuleto hecho con tallos de espigas negras y hierbas de olor punzante. Al ver tu empeño, saca de un cajón una daga de plata deslustrada.",
+      "«Esto no destruye a lo que está allá dentro. Pero puede hacer que recuerde lo que es el dolor.»"
+    ],
+    "onEnter": {
+      "addItem": "amuleto"
+    },
+    "choices": [
+      {
+        "label": "Aceptar la daga de plata y adentrarte en el campo",
+        "next": "entrada_dia",
+        "fx": {
+          "addItem": "daga"
+        }
+      },
+      {
+        "label": "Rechazar la daga y adentrarte solo con el amuleto",
+        "next": "entrada_dia"
+      }
+    ]
+  },
+  "entrada_dia": {
+    "title": "Bajo la luz menguante",
+    "text": [
+      "El trigo se aparta con un crujido metálico, denso como si estuvieras caminando en el fondo del agua. El silencio es asfixiante.",
+      "A diez pasos ves un espantapájaros. Su saco tiene una mancha de grasa o sangre vieja. Está inclinado en un ángulo Imposible, apuntando hacia el fondo de las espigas.",
+      "Escuchas un crujido.",
+      "Uno.",
+      "Dos.",
+      "Tres.",
+      "Se detiene.",
+      "Una voz a lo lejos, apagada, grita desesperada: «¡Auxilio! ¡Me estoy desangrando!». Es una voz de mujer que no conoces, llena de dolor."
+    ],
+    "choices": [
+      {
+        "label": "Examinar el espantapájaros que señala el camino",
+        "next": "campo_espantapajaros"
+      },
+      {
+        "label": "Ignorar los gritos y avanzar hacia el origen del sonido",
+        "next": "cuervos"
+      }
+    ]
+  },
+  "entrada_noche": {
+    "title": "La negrura en el trigal",
+    "text": [
+      "La noche cae sin transición. Las espigas se transforman en una masa informe que te araña las manos. Caminas a ciegas.",
+      "Cerca de tu oreja derecha, tan cerca que puedes sentir el aire frío sobre tu piel, una voz firme pero extrañamente pausada dice:",
+      "«Si entras ahí, no hables... no respondas si escuchas tu nombre...»",
+      "Es exactamente la voz del guardabosques Ardyn. Pero no hay nadie detrás de ti. Solo espigas."
+    ],
+    "onEnter": {
+      "sanity": -15
+    },
+    "choices": [
+      {
+        "label": "Encender una linterna para romper la penumbra",
+        "next": "campo_espantapajaros"
+      },
+      {
+        "label": "Avanzar a tientas intentando mantener la calma",
+        "next": "cuervos"
+      }
+    ]
+  },
+  "campo_espantapajaros": {
+    "title": "Figuras en la paja",
+    "text": [
+      "Te acercas a la figura de madera y trapos. La cabeza de saco no tiene cara dibujada, pero la tela está arrugada imitando una mueca de agonía.",
+      "Miras a tu alrededor. Ya no hay un solo espantapájaros: hay cinco, dispuestos en un círculo torpe. Ninguno tiene sombra, aunque la luna brilla en lo alto.",
+      "Cerca de los pies de la figura central, entre las espigas aplastadas, brilla el metal de una daga de plata deslustrada."
+    ],
+    "choices": [
+      {
+        "label": "Tomar la daga de entre la paja",
+        "next": "cuervos",
+        "fx": {
+          "addItem": "daga"
+        },
+        "hideIf": [
+          "daga"
+        ]
+      },
+      {
+        "label": "Apartarte lentamente del círculo de espantapájaros",
+        "next": "cuervos"
+      }
+    ]
+  },
+  "cuervos": {
+    "title": "El coro de los muertos",
+    "text": [
+      "Docenas de cuervos emergen de la espesura del trigo. No vuelan lejos; se posan en las vigas de madera de las figuras alrededor.",
+      "No graznan. De sus picos brotan fragmentos de conversaciones inconexas, pronunciadas con voces de niños, soldados y ancianos:",
+      "«¿Por qué no vuelve la patrulla?...» «Mamá, tengo frío...» «Cierra la puerta Ardyn...»",
+      "De pronto, entre el susurro de la multitud de cuervos, una voz idéntica a la tuya propia repite la frase que dijiste al salir de la ciudad:",
+      "«Solo será una misión sencilla.»",
+      "Nunca le dijiste esa frase a nadie."
+    ],
+    "choices": [
+      {
+        "label": "Avanzar hacia el claro abierto donde se juntan las aves",
+        "next": "susurros"
+      },
+      {
+        "label": "Tratar de desviar tu rumbo para salir del cerco de voces",
+        "next": "rodeo"
+      }
+    ]
+  },
+  "rodeo": {
+    "title": "Caminos repetidos",
+    "text": [
+      "Caminas durante veinte minutos manteniendo el sol poniente a tu espalda. El trigo te golpea los muslos. Apuras el paso.",
+      "De repente, tropiezas. Al levantar la vista, estás de nuevo frente al mismo espantapájaros torcido. Pero esta vez, enganchado a su brazo de madera, hay un pedazo de tela que reconoces al instante:",
+      "Es exactamente del mismo tejido y color que tu propia capa.",
+      "Sientes que el espacio en este trigal se retuerce según la voluntad de algo que no ves."
+    ],
+    "onEnter": {
+      "sanity": -10
+    },
+    "choices": [
+      {
+        "label": "Aceptar la trampa y dirigir te al claro del centro",
+        "next": "susurros"
+      }
+    ]
+  },
+  "susurros": {
+    "title": "La simulación de la calma",
+    "text": [
+      "Llegas a un área donde el trigo ha sido aplastado por algo pesado. Las espigas caídas no están rotas; parecen haberse doblado con devoción hacia el centro.",
+      "Una voz habla desde la oscuridad de los tallos. No es un grito. Es una voz serena, apacible, como la de un viejo amigo recibiéndote en casa:",
+      "«No tengas miedo. Estás a salvo aquí. Nadie va a hacerte daño. Puedes descansar...»",
+      "Tu mente quiere creerle. Sientes un cansancio infinito que te invita a soltar las armas y tenderte en la paja.",
+      "Pero sabes con certeza que esa entidad solo está usando palabras reconfortantes para que bajes la guardia."
+    ],
+    "onEnter": {
+      "sanity": -20
+    },
+    "choices": [
+      {
+        "label": "Apretar el amuleto de hierbas para despejar la neblina mental",
+        "next": "altar",
+        "requires": [
+          "amuleto"
+        ],
+        "fx": {
+          "sanity": 10
+        }
+      },
+      {
+        "label": "Morderte el labio con fuerza y continuar adentrándote a ciegas",
+        "next": "altar"
+      },
+      {
+        "label": "Detenerte a escuchar el mensaje tranquilizador",
+        "next": "escuchar_demasiado"
+      }
+    ]
+  },
+  "escuchar_demasiado": {
+    "title": "El eco robado",
+    "text": [
+      "Te quedas inmóvil. La voz suave continúa hablándote, desgranando detalles de tu infancia, momentos de vergüenza y miedos profundos que jamás expresaste a otro ser humano.",
+      "Con cada palabra que pronuncia, sientes que te arrebata un pedazo de memoria. Tu nombre empieza a sonarte lejano, como una palabra en un idioma extranjero.",
+      "Cuando finalmente reaccionas, sientes que hay menos de ti dentro de tu propia cabeza."
+    ],
+    "onEnter": {
+      "sanity": -25
+    },
+    "choices": [
+      {
+        "label": "Sacudirte el dolor de cabeza y correr hacia el centro del claro",
+        "next": "altar"
+      }
+    ]
+  },
+  "altar": {
+    "title": "El centro del ayuno",
+    "text": [
+      "En el corazón del claro yace un montón de tierra negra. Sobre él hay un volumen antiguo encuadernado en piel achicharrada: el Grimorio quemado del Alba.",
+      "Alrededor del libro hay restos de armaduras demacianas, carcomidas por un óxido de color rojizo. No hay huesos. Como si a los soldados los hubieran vaciado limpiamente desde dentro.",
+      "Un farol de metal herrumbroso cuelga de un poste cercano, emitiendo un fulgor verdoso e incomprensible que no proyecta luz, sino sombras inversas."
+    ],
+    "choices": [
+      {
+        "label": "Tomar el grimorio de la tierra",
+        "next": "aparicion",
+        "fx": {
+          "addItem": "grimorio"
+        }
+      },
+      {
+        "label": "Ignorar el libro y prepararte para lo que acecha",
+        "next": "aparicion"
+      }
+    ]
+  },
+  "aparicion": {
+    "title": "La forma primitiva",
+    "text": [
+      "El silencio del trigo estalla.",
+      "Un chirrido de metal viejo y madera podrida se alza sobre el campo. De entre la masa de tallos se levanta una silueta desproporcionada.",
+      "Sus extremidades son demasiado largas, un entramado torcido de vigas de granero, telas podridas y guadañas desgastadas. No se mueve como un ser vivo: da tirones secos, mecánicos, parando entre cada movimiento como si estuviera calculando cómo camina un humano.",
+      "En su mano mecánica sostiene un farol que parpadea. Dentro del cristal no hay fuego: hay rostros contorsionados en un grito mudo.",
+      "La criatura inclina su enorme cabeza de saco. De la grieta de su boca brota la voz del guardabosques Ardyn, pero ensamblada al revés:",
+      "«...no contestes... no contestes... si el trigo te llama...»"
+    ],
+    "choices": [
+      {
+        "label": "Atacar a la entidad antes de que complete su movimiento",
+        "next": "combate"
+      },
+      {
+        "label": "Quedarte absolutamente inmóvil y contener la respiración",
+        "next": "quietud"
+      },
+      {
+        "label": "Hablarle directamente a la criatura",
+        "next": "dialogo"
+      },
+      {
+        "label": "Girar sobre tus talones y huir a ciegas",
+        "next": "huida"
+      }
+    ]
+  },
+  "combate": {
+    "title": "Violencia inútil",
+    "text": [
+      "Arremetes contra la masa de madera y trapos. Tu golpe impacta en lo que debería ser el torso, pero no hay carne ni sangre; solo paja seca que cruje con una risa seca e inorgánica.",
+      "Uno de sus brazos de hoz se desplaza con una velocidad inverosímil. Te golpea en el costado, apartándote como a una pluma. La luz de un amarillo palido del farol te roza la cara, helándote los pensamientos."
+    ],
+    "onEnter": {
+      "hp": -50,
+      "sanity": -30
+    },
+    "choices": [
+      {
+        "label": "Clavar la daga de plata en la linterna o la junta de madera",
+        "next": "combate_daga",
+        "requires": [
+          "daga"
+        ]
+      },
+      {
+        "label": "Retroceder y recitar los versos de expulsión del grimorio",
+        "next": "combate_grimorio",
+        "requires": [
+          "grimorio"
+        ]
+      },
+      {
+        "label": "Luchar desesperadamente con los puños y tus armas comunes",
+        "next": "final_cosechado"
+      }
+    ]
+  },
+  "combate_daga": {
+    "title": "El destello del metal",
+    "text": [
+      "Entierras la daga de plata deslustrada en la madera antigua de la entidad.",
+      "Un chillido insoportable perfora tus oídos: no es el grito de un monstruo, sino el choque simultáneo de cien voces humanas gritando al mismo tiempo en agonía.",
+      "La criatura tambalea sus piernas enormes y da varios pasos dislocados hacia atrás, soltando chispas frías de la herida. Por un breve instante, la entidad retrocede."
+    ],
+    "choices": [
+      {
+        "label": "Usar ese segundo para recitar el ritual del grimorio",
+        "next": "final_exorcismo",
+        "requires": [
+          "grimorio"
+        ]
+      },
+      {
+        "label": "Aprovechar la distracción y correr desesperadamente",
+        "next": "final_huida"
+      }
+    ]
+  },
+  "combate_grimorio": {
+    "title": "Palabras que no le pertenecen",
+    "text": [
+      "Abres el Grimorio quemado del Alba. Las páginas parecen arder contra tus dedos mientras pronuncias los encantamientos de protección antiguos.",
+      "La entidad se detiene bruscamente. Inclina la cabeza casi noventa grados, imitando la postura de un perro curioso. Escucha tus palabras con una fascinación grotesca.",
+      "Empieza a repetir los incantos al mismo tiempo que tú, con tu propia voz, pero a doble velocidad."
+    ],
+    "choices": [
+      {
+        "label": "Canalizar la energía sagrada junto con el filo de la daga",
+        "next": "final_exorcismo",
+        "requires": [
+          "daga"
+        ]
+      },
+      {
+        "label": "El ritual se corrompe — cerrar el libro y huir del lugar",
+        "next": "final_huida"
+      }
+    ]
+  },
+  "quietud": {
+    "title": "El arte de la sombra",
+    "text": [
+      "Te petrificas. Recuerdas que las leyendas dicen que ciertas presencias antiguas solo reaccionan al movimiento provocado por el pánico.",
+      "La figura de saco se aproxima despacio. Cada paso suena como un poste cayendo sobre tierra seca. Su farol se balancea a centímetros de tu cara.",
+      "Ves tu reflejo en el cristal: detrás de ti no hay trigal, sino un abismo de ojos y paja. La cosa acerca su boca a tu oído y susurra con una perfección escalofriante:"
+    ],
+    "onEnter": {
+      "sanity": -30
+    },
+    "choices": [
+      {
+        "label": "Atacar por sorpresa en el momento de mayor cercanía",
+        "next": "combate"
+      },
+      {
+        "label": "El pavor se vuelve inaguantable: romper la postura y huir",
+        "next": "huida"
+      },
+      {
+        "label": "Aferrarte al amuleto y sostenerle la mirada en silencio",
+        "next": "dialogo",
+        "requires": [
+          "amuleto"
+        ]
+      }
+    ]
+  },
+  "dialogo": {
+    "title": "El espejo de voces",
+    "text": [
+      "«¿Qué eres?», logras articular con la garganta seca.",
+      "La criatura no responde con una entidad propia. En lugar de eso, abre la cavidad del saco y reproduce las últimas palabras que pronunciaron sus víctimas antes de morir:",
+      "«Por favor... tengo familia en el pueblo...» «¿Qué es esa luz?...» «¡No me dejes aquí Ardyn!...»",
+      "Y finalmente, pronuncia una frase que tú dijiste en privado antes de empezar este viaje, repitiendo exactamente tu tono de voz, tus pausas y tu respiración.",
+      "Comprendes el horror: no está hablando contigo. Está practicando tu voz para la siguiente persona."
+    ],
+    "onEnter": {
+      "sanity": -45
+    },
+    "choices": [
+      {
+        "label": "Retroceder sin darle la espalda hacia el límite del trigal",
+        "next": "huida"
+      },
+      {
+        "label": "Empuñar la daga de plata contra el centro del farol",
+        "next": "combate",
+        "requires": [
+          "daga"
+        ]
+      },
+      {
+        "label": "Entregarle el grimorio antiguo como trueque por tu vida",
+        "next": "final_pacto",
+        "requires": [
+          "grimorio"
+        ]
+      }
+    ]
+  },
+  "huida": {
+    "title": "La carrera a ciegas",
+    "text": [
+      "Corres sin mirar atrás. Las espigas te azotan el rostro, cortándote la piel. Oyes detrás de ti el chasquido rítmico de madera madera golpeando contra madera, manteniéndose exactamente a dos pasos de tu espalda.",
+      "No te atrapa, pero no te deja. Te arrea como un pastor conduciendo a una oveja asustada hacia la salida."
+    ],
+    "onEnter": {
+      "sanity": -35
+    },
+    "choices": [
+      {
+        "label": "Seguir corriendo hacia la línea de árboles del camino",
+        "next": "final_huida"
+      }
+    ]
+  },
+  "final_muerte": {
+    "title": "El vaciado",
+    "isEnding": true,
+    "tag": "FIN — cosechado",
+    "good": false,
+    "text": [
+      "Tus piernas fallan. Caes de rodillas sobre la tierra rota del campo. La sombra desproporcionada se cierne sobre ti.",
+      "Lo último que experimentas no es dolor físico, sino una sensación de succión helada en el pecho. La entidad absorbe cada recuerdo, cada miedo, cada grito que guardabas.",
+      "A la mañana siguiente, hay un nuevo espantapájaros en la entrada de Trigoseco. Viste tus ropas. Y cuando el viento sopla, de la paja brota tu voz llamando a los caminantes."
+    ]
+  },
+  "final_locura": {
+    "title": "La cáscara amarga",
+    "isEnding": true,
+    "tag": "FIN — vaciado",
+    "good": false,
+    "text": [
+      "Sales del trigal al amanecer. El guardabosques Ardyn te encuentra deambulando por el camino real y te toma del hombro.",
+      "Le miras a la cara pero no reconoces sus facciones. Tampoco recuerdas tu propio nombre, ni por qué tienes las manos cubiertas de tierra.",
+      "La criatura te ha dejado marchar porque ya no queda ningún miedo del que pueda alimentarse en ti. Eres solo un saco vacío que camina."
+    ]
+  },
+  "final_cosechado": {
+    "title": "Un adorno en el maizal",
+    "isEnding": true,
+    "tag": "FIN — cosechado",
+    "good": false,
+    "text": [
+      "Luchar a ciegas contra un terror primigenio sin las herramientas adecuadas solo acelera lo inevitable.",
+      "Las hojas de la guadaña te atrapan antes de que puedas dar el siguiente paso. La luz verdosa del farol se consume en tu visión.",
+      "El silencio regresa a Trigoseco. Nadie vendrá a buscarte, porque la voz que dejaste atrás se encargará de enviar cartas diciendo que todo está bien."
+    ]
+  },
+  "final_pacto": {
+    "title": "La voz entregada",
+    "isEnding": true,
+    "tag": "FIN — el trato",
+    "good": false,
+    "text": [
+      "Dejas caer el Grimorio quemado a los pies de la entidad. La monstruosidad se inclina en una reverencia grotesca y recoge el tomo con sus dedos de madera.",
+      "El camino hacia la salida se despeja mágicamente. Logras escapar con vida y regresar a la ciudad.",
+      "Sin embargo, a partir de esa noche, has perdido la capacidad de hablar con tu voz original. Cada vez que abres la boca para articular una palabra, lo que sale es la voz de una persona desconocida que grita en la lejanía."
+    ]
+  },
+  "final_huida": {
+    "title": "Sombras en el trigal",
+    "isEnding": true,
+    "tag": "FIN — huida",
+    "good": true,
+    "text": [
+      "Tropezando, salta la cerca de madera y caes sobre el camino de piedra fuera del campo. El sol brilla en el horizonte.",
+      "Has sobrevivido. Lograste escapar del valle de Trigoseco y jamás volverás a aceptar una misión al oeste de Demacia.",
+      "Sin embargo, mientras caminas hacia la seguridad de la ciudad, escuchas un crujido de paja a tus espaldas, justo al borde del camino.",
+      "Te giras. Un espantapájaros se alza junto al camino. Podrías jurar que no estaba allí hace un segundo. Y en el viento, muy tenue, una voz idéntica a la tuya susurra: «Aún tengo tiempo...»"
+    ]
+  },
+  "final_exorcismo": {
+    "title": "Ecos en el viento",
+    "isEnding": true,
+    "tag": "FIN — el exorcismo",
+    "good": true,
+    "text": [
+      "Uniendo la plata que hiere la paja con las palabras quemadas del Alba, logras desatar una ráfaga de fuego sagrado. La estructura de postes y sacos arde en una pira de llamas carmesí.",
+      "Un alarido compuesto por miles de gargantas retumba en todo el valle antes de disiparse en el aire de la mañana. La entidad se deshace en ceniza negra.",
+      "Sales del trigal cansado, victorioso. Pero mientras te limpias la ceniza del rostro, notas que entre los restos quemados del campo no hay ni un solo hueso de las víctimas pasadas.",
+      "Algo tan antiguo como el miedo no se destruye con plata y fuego. Solo ha cambiado de lugar. Y ahora conoce perfectamente tu voz."
+    ]
+  }
+}
