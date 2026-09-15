@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL QUE ESPERA EN EL TRIGO — una aventura de Runaterra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="crt-overlay" aria-hidden="true"></div>
+
+<div class="console">
+  <div class="console-head">
+    <span><span class="sigil">✦</span> runaterra · crónicas locales</span>
+    <div class="console-tools">
+      <button id="crtToggle" class="crt-toggle" type="button" aria-pressed="true">CRT: activo</button>
+      <span id="nodeTag">trigo_01</span>
+    </div>
+  </div>
+
+  <div class="status">
+    <div class="stat-row" id="hpRow" role="status" aria-live="polite">
+      <span class="stat-label">vida</span>
+      <span class="stat-bar vida" id="hpBar" aria-hidden="true"></span>
+      <span class="stat-num" id="hpNum"></span>
+    </div>
+    <div class="stat-row" id="sanRow" role="status" aria-live="polite">
+      <span class="stat-label">cordura</span>
+      <span class="stat-bar cordura" id="sanBar" aria-hidden="true"></span>
+      <span class="stat-num" id="sanNum"></span>
+    </div>
+    <div class="inventory" id="inventory" role="status" aria-live="polite" aria-label="Inventario"></div>
+  </div>
+
+  <div class="stage" id="stage" role="region" aria-live="polite" aria-atomic="true" aria-label="Texto de la historia"></div>
+
+  <div class="choices" id="choices" role="group" aria-label="Opciones disponibles"></div>
+</div>
+
+<script type="module" src="js/main.mjs"></script>
+</body>
+</html>
