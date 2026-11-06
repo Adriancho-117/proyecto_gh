@@ -44,7 +44,7 @@ export function renderNode(node, onChoice, onMenu, id) {
   }
 
   node.choices.forEach((choice, index) => {
-    addButton(choice.label, () => onChoice(choice.next), `[${index + 1}]`);
+    addButton(choice.label, () => onChoice(choice), `[${index + 1}]`);
   });
 }
 

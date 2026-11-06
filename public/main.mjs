@@ -1,5 +1,6 @@
 import { loadStories } from './story.mjs';
 import { renderMenu, renderNode, getChoiceButtons } from './render.mjs';
+import { createActState, getAvailableChoices, selectChoice } from './engine.mjs';
 
 const crtToggle = document.getElementById('crtToggle');
 const stageEl = document.getElementById('stage');
@@ -7,6 +8,7 @@ const choicesEl = document.getElementById('choices');
 const ACT1_COMPLETE_KEY = 'jhin-act-1-complete';
 let stories;
 let currentAct;
+let currentState;
 
 function setCrt(enabled) {
   document.body.classList.toggle('crt-disabled', !enabled);
@@ -45,6 +47,7 @@ function startAct(number) {
   }
 
   currentAct = number === 1 ? stories.act1 : stories.act2;
+  currentState = createActState(currentAct);
   showNode(currentAct.startId);
 }
 
@@ -54,7 +57,8 @@ function showNode(id) {
   if (currentAct === stories.act1 && node.isEnding) {
     localStorage.setItem(ACT1_COMPLETE_KEY, 'true');
   }
-  renderNode(node, showNode, showMenu, id);
+  const visibleNode = { ...node, choices: getAvailableChoices(node, currentState) };
+  renderNode(visibleNode, choice => showNode(selectChoice(choice, currentState)), showMenu, id);
 }
 
 async function start() {
