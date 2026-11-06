@@ -1,7 +1,7 @@
-# Dependencies
+# Dependencias
 node_modules/
 
-# Environment variables and secrets
+# variables secretas
 .env
 .env.*
 !.env.example
@@ -10,9 +10,9 @@ node_modules/
 *.log
 npm-debug.log*
 
-# Operating system files
+# cosas de mac y windows
 .DS_Store
 Thumbs.db
 
-# Local editor settings
+# IDE
 .vscode/
