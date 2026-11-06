@@ -1,7 +1,7 @@
 
 export async function loadStory() {
   try {
-    const response = await fetch('./js/story.json');
+    const response = await fetch('./story.json');
     if (!response.ok) {
       throw new Error('Respuesta no válida del servidor: ' + response.status);
     }
