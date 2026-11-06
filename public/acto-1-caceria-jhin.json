@@ -1,0 +1,101 @@
+{
+  "titulo_general": "La Cacería del Demonio Dorado",
+  "acto": 1,
+  "nombre_acto": "Acto I: El Demonio Dorado de Zhyun",
+  "descripcion_acto": "La angustiosa cacería de cuatro años llevada a cabo por el Gran Maestro Kusho, su hijo Shen y su aprendiz Zed para desenmascarar al ser que aterroriza la provincia de Zhyun.",
+  "verificacion_lore": {
+    "fidelidad_canonica": true,
+    "facciones": [
+      "Orden Kinkou",
+      "Consejo de Zhyun"
+    ],
+    "personajes_principales": {
+      "Gran Maestro Kusho": "Líder del Orden Kinkou, sabio y firme creyente en el Equilibrio. Su melena roja se vuelve completamente blanca tras cuatro años de persecución.",
+      "Shen": "Hijo de Kusho. Joven ingenioso y alegre que se vuelve sombrío e inflexible conforme atestigua los asesinatos macabros.",
+      "Zed (Usan)": "El aprendiz estrella de Kusho. Su frustración y trauma ante la piedad de Kusho hacia Jhin siembran la semilla del resentimiento.",
+      "Khada Jhin": "Conocido como el Demonio Dorado. Tramoyista de ópera y teatro ambulante de Zhyun que transforma los cuerpos de sus víctimas en macabras esculturas estéticas."
+    }
+  },
+  "nodos": [
+    {
+      "id": "acto1_inicio_zhyun",
+      "titulo": "Las Sombras de Zhyun",
+      "narrativa": "Durante años, las montañas del sur de Ionia en la provincia de Zhyun, extendiéndose hasta Shon-Xan y Galrin, han sido asoladas por una entidad despiadada. Viajeros y familias enteras de granjeros son hallados masacrados, pero sus cuerpos no muestran marcas de voracidad animal: han sido convertidos en espantosas y estilizadas composiciones de carne y flores. Las milicias locales, los cazadores de demonios y los maestros de la escuela de Wuju han fracasado. El Consejo de Zhyun envía un emisario desesperado al Gran Maestro Kusho del Orden Kinkou para solicitar auxilio en la expulsión de lo que todos creen que es un Demonio Dorado.",
+      "opciones": [
+        {
+          "texto": "Acompañar al Gran Maestro Kusho en la inspección silenciosa de los escenarios del crimen.",
+          "siguiente_nodo": "acto1_inspeccion_crimenes"
+        },
+        {
+          "texto": "Permitir a Zed tomar la iniciativa para rastrear patrones con métodos más agresivos.",
+          "siguiente_nodo": "acto1_rastreo_zed"
+        }
+      ]
+    },
+    {
+      "id": "acto1_inspeccion_crimenes",
+      "titulo": "El Desgaste de Cuatro Años",
+      "narrativa": "Kusho, Shen y Zed parten en secreto. Pasan cuatro agobiantes años estudiando cadáveres desecados, reconfortando a familias destrozadas y analizando la precisión casi matemática de los crímenes. El impacto psicológico es severo: la cabellera roja de Kusho encanece por completo; Shen pierde su jovialidad tornándose frío y estoico; Zed sufre enormemente en sus estudios espirituales. Kusho pronuncia una máxima que marcará a sus alumnos: 'El bien y el mal no son verdades. Nacen de los hombres, y cada uno ve las sombras de forma distinta'. Al deducir que las masacres no corresponden a un espíritu desencadenado sino a un ser mortal, Kusho considera transferir el caso, pero Shen y Zed le imploran continuar.",
+      "opciones": [
+        {
+          "texto": "Continuar la cacería hasta acorralar al asesino en el Paso de Jyom.",
+          "siguiente_nodo": "acto1_emboscada_jyom"
+        }
+      ]
+    },
+    {
+      "id": "acto1_rastreo_zed",
+      "titulo": "Impaciencia y Sombras",
+      "narrativa": "Zed intenta adelantarse a la mente del asesino, buscando rastros de magia ki y artesanía en los instrumentos cortantes dejados en las escenas. La frustración lo consume al ver que el 'demonio' parece burlarse de ellos. Kusho modera el ansia de Zed, recordándole que el deber del Kinkou es mantener el equilibrio entre el mundo material y el espiritual. Sin embargo, Zed interioriza que la contención y la norma del Kinkou están costando vidas ionianas innocentes.",
+      "opciones": [
+        {
+          "texto": "Coordinar con Shen para preparar la trampa definitiva en la víspera del Festival de la Flor Espiritual.",
+          "siguiente_nodo": "acto1_emboscada_jyom"
+        }
+      ]
+    },
+    {
+      "id": "acto1_emboscada_jyom",
+      "titulo": "La Revelación en el Paso de Jyom",
+      "narrativa": "En la víspera del Festival de la Flor Espiritual junto al río Ghajan, el Gran Maestro Kusho se disfraza de calígrafo célebre entre los artistas invitados al Paso de Jyom. Zed actúa como señuelo en los muelles, cayendo momentáneamente tras ser capturado por el misterioso objetivo. Al despertar atado, observa a Khada Jhin amenazando a Yevnai. Shen irrumpe derribando el muro y sujetando al asesino por el cuello. La sorpresa es devastadora: el temido 'Demonio Dorado' no es un monstruo sobrenatural, sino un simple y humilde tramoyista de las compañías teatrales ambulantes de Zhyun llamado Khada Jhin.",
+      "opciones": [
+        {
+          "texto": "Permitir que Zed alce su cuchilla para ejecutar sumariamente a Jhin.",
+          "siguiente_nodo": "acto1_intento_ejecucion"
+        },
+        {
+          "texto": "Escuchar el juicio del Gran Maestro Kusho para detener el golpe de Zed.",
+          "siguiente_nodo": "acto1_dilema_kusho"
+        }
+      ]
+    },
+    {
+      "id": "acto1_intento_ejecucion",
+      "titulo": "La Mano Interceptada",
+      "narrativa": "Zed, cegado por la furia ante los años de atrocidades y el desprecio con el que Jhin contemplaba la vida humana, desenfunda su cuarta cuchilla e intenta degollar al asesino acobardado. En el último instante, Kusho frena el brazo de su aprendiz. Kusho argumenta que matar a Jhin rompería el mandato del Kinkou y que revelar que un hombre mortal comete semejantes atrocidades destruiría la armonía y la fe de la sociedad ioniana.",
+      "opciones": [
+        {
+          "texto": "Aceptar el traslado de Jhin al monasterio prisión de Tuula.",
+          "siguiente_nodo": "acto1_encarcelamiento_tuula"
+        }
+      ]
+    },
+    {
+      "id": "acto1_dilema_kusho",
+      "titulo": "La Lógica Fría del Equilibrio",
+      "narrativa": "Kusho decreta que Jhin debe ser capturado con vida y recluido permanentemente en el monasterio prisión de Tuula. Shen, educado en el respeto irrestricto a la autoridad paterna, acata la decisión con lógica fría. Zed, consternado y traumatizado por los horrores presenciados, siente cómo el rencor hacia la piedad incomprensible de su maestro echa raíces en su corazón.",
+      "opciones": [
+        {
+          "texto": "Concluir el Acto I con el encierro de Jhin en Tuula.",
+          "siguiente_nodo": "acto1_encarcelamiento_tuula"
+        }
+      ]
+    },
+    {
+      "id": "acto1_encarcelamiento_tuula",
+      "titulo": "El Prisionero de Tuula",
+      "narrativa": "Khada Jhin es encerrado en el monasterio de Tuula. Durante años mantiene una conducta imprevistamente refinada: los monjes lo consideran un estudiante brillante que destaca en poesía, herrería y danza, aunque incapaz de curar su fascinación morbosa. Mientras tanto, en las fronteras de Ionia se avista el humo de la invasión noxiana. La paz del First Land está a punto de quebrarse para siempre, preparando el terreno para la liberación del Virtuoso.",
+      "opciones": []
+    }
+  ]
+}

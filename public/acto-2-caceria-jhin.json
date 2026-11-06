@@ -1,0 +1,99 @@
+{
+  "titulo_general": "La Cacería del Demonio Dorado",
+  "acto": 2,
+  "nombre_acto": "Acto II: La Reaparición del Virtuoso y la Sombra de Kusho",
+  "descripcion_acto": "Años después de la invasión noxiana, Khada Jhin es liberado por facciones radicales. Shen y Zed deben encarar sus odios mutuos y descifrar una conspiración política que amenaza Ionia.",
+  "verificacion_lore": {
+    "fidelidad_canonica": true,
+    "facciones": [
+      "Orden de las Sombras (Yanlei)",
+      "Orden Kinkou",
+      "Armerías Kashuri",
+      "Hermandad de Navori"
+    ],
+    "personajes_principales": {
+      "Khada Jhin": "Equipado por las Armerías Kashuri con el rifle 'Cuchicheo' y un acelerador de masa mágico, desata asesinatos calculados en múltiplos de cuatro.",
+      "Zed": "Maestro de las Sombras. Tras matar aparentemente a Kusho en la guerra noxiana, lidera su propia orden hasta ser arrastrado por los mensajes de Jhin.",
+      "Shen": "El Ojo del Crepúsculo. Lidera el Kinkou y se ve forzado a aliarse temporalmente con Zed a pesar del asesinato de su padre.",
+      "Akali": "Joven kunoichi del Kinkou que busca probarse a sí misma persiguiendo el rastro del Virtuoso.",
+      "Gran Maestro Kusho": "Revelado como el cerebro tras la Hermandad de Navori. Fingió su muerte con ayuda de Zed para manipular la política de Ionia mediante el terror de Jhin."
+    }
+  },
+  "nodos": [
+    {
+      "id": "acto2_liberacion_jhin",
+      "titulo": "La Fuga y el Artefacto Kashuri",
+      "narrativa": "Tras la devastadora guerra contra Noxus, los cimientos políticos de Ionia se fracturan. Elementos radicales dentro de los cabildos de poder rescatan en secreto a Khada Jhin de la prisión de Tuula. Financiado con recursos ilimitados, las Armerías Kashuri le proveen un armamento revolucionario: el rifle Hextech 'Cuchicheo' y un acelerador de masa montado al hombro que imbuye proyectiles con magia de espíritus. Jhin reinicia sus 'actuaciones' teatrales, dejando rastros de asesinatos rituales en Ionia, Piltover y Zaun.",
+      "opciones": [
+        {
+          "texto": "Analizar la provocación enviada por Jhin a la Taverna Kwol.",
+          "siguiente_nodo": "acto2_mensaje_provocacion"
+        },
+        {
+          "texto": "Revisar los informes sobre la tragedia del templo de Koyehn.",
+          "siguiente_nodo": "acto2_trasfondo_koyehn"
+        }
+      ]
+    },
+    {
+      "id": "acto2_trasfondo_koyehn",
+      "titulo": "La Llama de Koyehn",
+      "narrativa": "Durante su travesía post-liberación, Jhin pasó un verano entero en el templo artístico de Koyehn conviviendo con el joven pintor Hwei. Al percibir que el arte de Hwei ocultaba emociones reprimidas, Jhin desató su brutalidad en su noche final: destruyó cuatro pinturas históricas, ejecutó a cuatro maestros de Koyehn y quemó los cuatro pisos inferiores del templo provocando su colapso, antes de partir diciendo que iba a 'ver florecer los capullos de loto'. Este antecedente demuestra que el Virtuoso opera bajo una obsesión estética inquebrantable con el número cuatro.",
+      "opciones": [
+        {
+          "texto": "Seguir la pista directa hacia el embalse y la Taverna Kwol.",
+          "siguiente_nodo": "acto2_mensaje_provocacion"
+        }
+      ]
+    },
+    {
+      "id": "acto2_mensaje_provocacion",
+      "titulo": "El Mensaje en la Taberna Kwol",
+      "narrativa": "Una mensajera envía una barca iluminada por una de las linternas características de Jhin hasta la Taberna Kwol donde se encuentra Zed. Entrega una daga sintonizada espiritualmente como supuesto regalo de un 'hombre rico'. Instantes después, Zed descubre que Jhin ha asesinado a cuatro personas en la aldea norte: dos desconocidos, a la mensajera y a la anciana a quien Zed y Kusho habían auxiliado 16 años atrás. Zed comprende que el fantasma del pasado ha regresado para terminar la función.",
+      "opciones": [
+        {
+          "texto": "Pactar una tregua amarga con Shen para cazar juntos al asesino.",
+          "siguiente_nodo": "acto2_alianza_enemigos"
+        }
+      ]
+    },
+    {
+      "id": "acto2_alianza_enemigos",
+      "titulo": "La Alianza de las Sombras y el Crepúsculo",
+      "narrativa": "Shen (el Ojo del Crepúsculo) y Zed (el Maestro de las Sombras), enemigos encarnizados desde el quiebre de la Orden Kinkou, unen fuerzas a regañadientes junto a la joven Akali. Al enfrentarse a las emboscadas de Jhin con proyectiles de larga distancia y trampas de loto, Zed señala sorprendido que el arma del asesino es tecnología extranjera. Mientras siguen el rastro de sangre, Jhin susurra pistas envenenadas que insinúan que sus verdaderos patrones no son noxianos, sino alguien extremadamente cercano a ambos ninjas.",
+      "opciones": [
+        {
+          "texto": "Seguir a Jhin hasta la fortaleza secreta en Navori.",
+          "siguiente_nodo": "acto2_revelacion_kusho"
+        }
+      ]
+    },
+    {
+      "id": "acto2_revelacion_kusho",
+      "titulo": "El Secreto del Gran Maestro",
+      "narrativa": "Akali es capturada temporalmente en el teatro de trampas de Jhin, obligando a Shen y Zed a irrumpir en el santuario central. Allí se revela la verdad oculta relatada en los cómics: el Gran Maestro Kusho NO murió a manos de Zed durante la invasión noxiana. Fingió su muerte con la complicidad de Zed para crear la Hermandad de Navori y asumir el control absoluto de Ionia. Para forzar a la población a abandonar el pacifismo, Kusho financió la liberación de Jhin y usó su terrorismo como herramienta de unificación nacional. Corrompido por la magia oscura de las Lágrimas de la Sombra, Kusho se enfrenta a sus antiguos alumnos.",
+      "opciones": [
+        {
+          "texto": "Permitir a Zed ejecutar finalmente al corrompido Kusho y recapturar a Jhin (Final Canónico).",
+          "siguiente_nodo": "acto2_final_canonico"
+        },
+        {
+          "texto": "Rendir a Kusho ante el juicio del Ojo del Crepúsculo y asegurar a Jhin bajo custodia del Kinkou.",
+          "siguiente_nodo": "acto2_final_kinkou"
+        }
+      ]
+    },
+    {
+      "id": "acto2_final_canonico",
+      "titulo": "Epílogo: La Tramoya de Sombras (Canónico)",
+      "narrativa": "Zed acaba con la vida del corrupto Kusho para proteger el secreto y mantener el equilibrio que Ionia necesita, asumiendo ante Shen la carga del villano. Khada Jhin es acorralado y puesto nuevamente bajo custodia en las prisiones más profundas de Ionia. Shen comprende el sacrificio oscuro de Zed, manteniendo la trágica distancia entre la Orden Kinkou y la Orden de las Sombras, mientras el recuerdo del Virtuoso aguarda en la oscuridad de Runaterra.",
+      "opciones": []
+    },
+    {
+      "id": "acto2_final_kinkou",
+      "titulo": "Epílogo: La Justicia del Crepúsculo (Alternativo)",
+      "narrativa": "Shen interpone su hoja de espíritu, impidiendo que Zed mate a Kusho. Con la verdad al descubierto sobre la Hermandad de Navori, Kusho es despojado de sus poderes mágicos y encarcelado junto a Khada Jhin. Ionia inicia un lento proceso de sanación donde la justicia del Kinkou prevalece sobre el terror y la venganza.",
+      "opciones": []
+    }
+  ]
+}

@@ -1,98 +1,79 @@
-import { ITEMS } from './items.mjs';
-import { state, hasAll } from './state.mjs';
+const stage = document.getElementById('stage');
+const choices = document.getElementById('choices');
+const nodeTag = document.getElementById('nodeTag');
 
-const stageEl   = document.getElementById('stage');
-const choicesEl = document.getElementById('choices');
-const nodeTagEl = document.getElementById('nodeTag');
+function addButton(label, action, index = '›', className = 'choice-btn') {
+  const button = document.createElement('button');
+  button.className = className;
+  button.type = 'button';
 
+  const marker = document.createElement('span');
+  marker.className = 'idx';
+  marker.textContent = index;
+  button.appendChild(marker);
 
-function barString(value, glyphFull, glyphEmpty) {
-  const total = 20;
-  const filled = Math.round((value / 100) * total);
-  return glyphFull.repeat(filled) + glyphEmpty.repeat(total - filled);
+  const text = document.createElement('span');
+  text.textContent = label;
+  button.appendChild(text);
+  button.onclick = action;
+  choices.appendChild(button);
 }
 
-
-export function renderStatus() {
-  document.getElementById('hpBar').textContent = barString(state.hp, '█', '░');
-  document.getElementById('hpNum').textContent = state.hp + '/100';
-  document.getElementById('hpRow').setAttribute('aria-label', 'Vida: ' + state.hp + ' de 100');
-
-  document.getElementById('sanBar').textContent = barString(state.sanity, '▓', '░');
-  document.getElementById('sanNum').textContent = state.sanity + '/100';
-  document.getElementById('sanRow').setAttribute('aria-label', 'Cordura: ' + state.sanity + ' de 100');
-
-  const inv = document.getElementById('inventory');
-  inv.innerHTML = '';
-  if (state.inventory.size === 0) {
-    const span = document.createElement('span');
-    span.className = 'empty';
-    span.textContent = 'sin objetos';
-    inv.appendChild(span);
-  } else {
-    state.inventory.forEach(key => {
-      const span = document.createElement('span');
-      span.className = 'item';
-      span.textContent = ITEMS[key];
-      inv.appendChild(span);
-    });
-  }
-}
-
-
-export function renderNode(node, onChoice, onRestart) {
-  renderStatus();
-  nodeTagEl.textContent = state.currentId;
-
-  stageEl.innerHTML = '';
+export function renderNode(node, onChoice, onMenu, id) {
+  nodeTag.textContent = id;
+  stage.innerHTML = '';
   const h2 = document.createElement('h2');
   h2.textContent = node.title;
-  stageEl.appendChild(h2);
+  stage.appendChild(h2);
 
   if (node.isEnding) {
     const tag = document.createElement('span');
-    tag.className = 'ending-tag' + (node.good ? ' good' : '');
-    tag.textContent = node.tag;
-    stageEl.appendChild(tag);
+    tag.className = 'ending-tag';
+    tag.textContent = 'Final';
+    stage.appendChild(tag);
   }
 
-  node.text.forEach(line => {
-    const p = document.createElement('p');
-    p.textContent = line;
-    stageEl.appendChild(p);
-  });
-
-  stageEl.scrollTop = 0;
-
-  choicesEl.innerHTML = '';
-
+  const paragraph = document.createElement('p');
+  paragraph.textContent = node.text;
+  stage.appendChild(paragraph);
+  stage.scrollTop = 0;
+  choices.innerHTML = '';
   if (node.isEnding) {
-    const btn = document.createElement('button');
-    btn.className = 'restart-btn';
-    btn.textContent = '↺ empezar de nuevo';
-    btn.onclick = onRestart;
-    choicesEl.appendChild(btn);
+    addButton('Volver al menú principal', onMenu, '↺', 'restart-btn');
     return;
   }
 
-  (node.choices || []).forEach((choice, i) => {
-    if (choice.hideIf && hasAll(choice.hideIf)) return;
-    if (choice.requires && !hasAll(choice.requires)) return;
-
-    const btn = document.createElement('button');
-    btn.className = 'choice-btn';
-    const idx = document.createElement('span');
-    idx.className = 'idx';
-    idx.textContent = '[' + (i + 1) + ']';
-    const label = document.createElement('span');
-    label.textContent = choice.label;
-    btn.appendChild(idx);
-    btn.appendChild(label);
-    btn.onclick = () => onChoice(choice.next, choice.fx);
-    choicesEl.appendChild(btn);
+  node.choices.forEach((choice, index) => {
+    addButton(choice.label, () => onChoice(choice.next), `[${index + 1}]`);
   });
 }
 
+export function renderMenu(stories, act2Unlocked, onStartAct) {
+  nodeTag.textContent = 'menú_principal';
+  stage.innerHTML = '';
+  const h2 = document.createElement('h2');
+  h2.className = 'menu-title';
+  h2.textContent = stories.title;
+  stage.appendChild(h2);
+
+  const intro = document.createElement('p');
+  intro.className = 'menu-intro';
+  intro.textContent = 'Una historia interactiva de decisiones, sombras y cacería en Jonia.';
+  stage.appendChild(intro);
+  stage.scrollTop = 0;
+  choices.innerHTML = '';
+  addButton(`${stories.act1.name} — Comenzar historia`, () => onStartAct(1));
+
+  if (act2Unlocked) {
+    addButton(`${stories.act2.name} — Continuar historia`, () => onStartAct(2));
+  } else {
+    const hint = document.createElement('p');
+    hint.className = 'menu-hint';
+    hint.textContent = 'Completa el acto disponible para descubrir lo que sigue.';
+    choices.appendChild(hint);
+  }
+}
+
 export function getChoiceButtons() {
-  return choicesEl.querySelectorAll('.choice-btn');
+  return choices.querySelectorAll('.choice-btn');
 }
