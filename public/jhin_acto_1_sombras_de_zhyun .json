@@ -1,0 +1,255 @@
+{
+  "verificacion_lore": {
+    "canon": [
+      "El 'Demonio Dorado' aterrorizó la provincia de Zhyun y zonas aledañas durante años con asesinatos macabros [47].",
+      "La cacería duró algo más de cuatro años y fue dirigida por el Gran Maestro Kusho, Shen y su aprendiz Zed (Usan) [13, 48, 49].",
+      "Durante la búsqueda, el cabello de Kusho se volvió blanco, Shen perdió su sentido del humor volviéndose sombrío y Zed sufrió en sus estudios [49].",
+      "La captura ocurrió en el Paso de Jyom en el río Ghajan durante la víspera del Festival de la Flor Espiritual [14, 50].",
+      "Kusho se disfrazó de calígrafo célebre y Shen con Zed prepararon la trampa [50].",
+      "Jhin capturó a Zed (Usan), le quitó su amuleto Kinkou y lo ató amenazando la vida de Yevnai en el embarcadero [14].",
+      "El 'Demonio Dorado' resultó ser Khada Jhin, un humilde tramoyista de ópera ambulante de Zhyun [13, 50].",
+      "Zed intentó matar a Jhin con la cuarta cuchilla de este, pero Kusho lo impidió [14, 50].",
+      "Kusho decidió encarcelar a Jhin en la prisión del monasterio de Tuula para no destruir la armonía ioniana [14, 50, 51].",
+      "Esta piedad engendró un profundo resentimiento en el corazón de Zed [51]."
+    ],
+    "licencia_creativa": [
+      "Diálogos poéticos e introspectivos de Jhin durante el apresamiento en el Paso de Jyom para acentuar su obsesión escénica.",
+      "Variaciones en las rutas de investigación entre Zed y Shen que acumulan variables de estado (resentimiento_zed, desgaste_kusho).",
+      "El análisis detallado de la simetría visual de las víctimas antes de la captura final."
+    ],
+    "por_verificar": [
+      "No hay detalles en las fuentes sobre el origen familiar exacto de Yevnai o su relación sentimental formal previa con los jóvenes acolitos."
+    ]
+  },
+  "variables_iniciales": {
+    "resentimiento_zed": 0,
+    "fe_publica": 100,
+    "desgaste_kusho": 0,
+    "ruptura_con_kinkou": 0
+  },
+  "nodos": [
+    {
+      "id": "nodo_inicio",
+      "titulo": "Acto I: Las Sombras sobre Zhyun",
+      "fuente": "canon",
+      "narrativa": "Durante años, los valles del sur de Ionia han vivido bajo la sombra del 'Demonio Dorado'. A lo largo de la provincia de Zhyun, poblados enteros y caravanas yacen masacrados en arreglos cadavéricos de una belleza espeluznante. Desesperado, el Consejo de Zhyun ha enviado un emisario al templo Kinkou para suplicar la ayuda del Gran Maestro Kusho. Junto a su hijo Shen —un joven brillante de marcado ingenio— y su pupilo Usan (Zed), el maestro parte en estricto secreto. El horror presenciado en los campos ensangrentados no se asemeja a la furia salvaje de un espíritu descarriado: hay una intención humana, fría y metódica, detrás de cada muerte.",
+      "opciones": [
+        {
+          "texto": "Acompañar a Usan en el análisis forense de las armas de corte y la trayectoria de los ataques.",
+          "efectos": {
+            "resentimiento_zed": 2,
+            "ruptura_con_kinkou": 1
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_investigacion_zed"
+        },
+        {
+          "texto": "Apoyar a Shen y Kusho en la mediación con las familias sobrevivientes y la búsqueda de rastros etéreos.",
+          "efectos": {
+            "desgaste_kusho": 2,
+            "fe_publica": 5
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_investigacion_shen"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_investigacion_zed",
+      "titulo": "El Cincel y la Sangre",
+      "fuente": "adaptado",
+      "narrativa": "Usan examina los cortes precisos en los cuerpos vertidos en las colinas de Galrin. No hay desgarros de garras demoníacas; los trazos han sido ejecutados con cuchillas delgadas de carpintería y utilería teatral, impregnadas de técnica de Ki. La frustración arde en el joven acolyte: mientras el Gran Maestro Kusho busca un espíritu que no existe, las masacres continúan. La larga investigación empieza a consumir a los tres perseguidores. El célebre cabello rojo de Kusho comienza a teñirse de blanco sepulcral, y la concentración de Usan en sus estudios en el templo empieza a desmoronarse bajo el peso de las pesadillas.",
+      "opciones": [
+        {
+          "texto": "Rastrear los gremios de artesanos y las compañías itinerantes de teatro en las ciudades de Zhyun.",
+          "efectos": {
+            "resentimiento_zed": 3,
+            "ruptura_con_kinkou": 2
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_pista_jyom_zed"
+        },
+        {
+          "texto": "Confrontar al Gran Maestro Kusho sobre la verdadera naturaleza humana del asesino.",
+          "efectos": {
+            "desgaste_kusho": 3,
+            "resentimiento_zed": 1
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_reflexion_kusho"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_investigacion_shen",
+      "titulo": "El Eco del Viento de Zhyun",
+      "fuente": "adaptado",
+      "narrativa": "Shen recorre los santuarios de Shon-Xan. Aunque educado en el humor y el dinamismo del Kinkou, el silencio de los espíritus ante las matanzas extingue gradualmente su jovialidad. Kusho observa con dolor cómo la solemnidad aplasta el espíritu de su hijo. Al purificar las arboledas, descubren que el asesino ha dejado patrones geométricos con pétalos y sangre, imitando las puestas en escena de las óperas clásicas ionianas. Kusho murmura que el bien y el mal son matices nacidos de los hombres, sugiriendo abandonar la caza al no ser un asunto demoníaco, pero Shen y Usan le imploran continuar.",
+      "opciones": [
+        {
+          "texto": "Seguir la ruta de las compañías dramáticas de la región hasta la frontera ribereña.",
+          "efectos": {
+            "desgaste_kusho": 2,
+            "fe_publica": -5
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_pista_jyom_shen"
+        },
+        {
+          "texto": "Analizar la simbología escénica de los crímenes junto al Gran Maestro Kusho.",
+          "efectos": {
+            "desgaste_kusho": 3,
+            "resentimiento_zed": 1
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_reflexion_kusho"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_reflexion_kusho",
+      "titulo": "El Dilema del Equilibrio",
+      "fuente": "canon",
+      "narrativa": "Tras casi cuatro agotadores años de persecución, la convicción de Kusho se confirma: no persiguen a una bestia del Reino Espiritual, sino a un hombre perverso. Kusho advierte solemnemente a sus estudiantes: 'El bien y el mal no son verdades absolutas. Nacen de los hombres, y cada uno ve los matices de forma distinta'. Creyendo que el mandato Kinkou prohíbe intervenir en conflictos puramente humanos, Kusho propone derivar el caso a las autoridades provinciales. Sin embargo, Shen y Usan, reacios a rendirse tras tantas privaciones, logran persuadir a su maestro para tender un último trampa definitiva.",
+      "opciones": [
+        {
+          "texto": "Preparar una emboscada durante las festividades del Paso de Jyom.",
+          "efectos": {
+            "resentimiento_zed": 2,
+            "desgaste_kusho": 2
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_pista_jyom_zed"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_pista_jyom_zed",
+      "titulo": "La Víspera en el Paso de Jyom",
+      "fuente": "canon",
+      "narrativa": "Han transcurrido más de cuatro años de desgastante cacería. La melena roja de Kusho es ahora completamente blanca; Shen se ha vuelto un hombre sobrio y taciturno; y la ira interior de Usan amenaza con desbordarse. La pista definitiva sitúa al objetivo en el Paso de Jyom, a orillas del río Ghajan, durante la víspera del Festival de la Flor Espiritual. Kusho se oculta bajo el disfraz de un célebre calígrafo invitado entre los artistas itinerantes, mientras Shen y Usan coordinan un cerco perfecto alrededor de los muelles y recintos de ensayo.",
+      "opciones": [
+        {
+          "texto": "Avanzar en sigilo por los muelles del río Ghajan persiguiendo la sombra entre los bastidores.",
+          "efectos": {
+            "resentimiento_zed": 3,
+            "ruptura_con_kinkou": 2
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_trampa_jyom"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_pista_jyom_shen",
+      "titulo": "El Escenario del Río Ghajan",
+      "fuente": "canon",
+      "narrativa": "Llegada la víspera del Festival de la Flor Espiritual en el Paso de Jyom, la tensión entre los cazadores es máxima. Cuatro años de matanzas han dejado cicatrices imborrables en la Kinkou. Siguiendo el plan ideado por Kusho, el Gran Maestro asume el disfraz de un renombrado maestro calígrafo para infiltrarse entre los artesanos de la ópera ambulante de Zhyun. Mientras la música festivalera empieza a sonar a lo largo de las aguas del río Ghajan, la trampa se cierra lentamente sobre el misterioso criminal.",
+      "opciones": [
+        {
+          "texto": "Coordinar el cierre de las salidas del embarcadero junto a Shen y Usan.",
+          "efectos": {
+            "desgaste_kusho": 2,
+            "fe_publica": 5
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_trampa_jyom"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_trampa_jyom",
+      "titulo": "Trampa en el Embarcadero",
+      "fuente": "canon",
+      "narrativa": "Usan se interna entre los bastidores de madera junto al río Ghajan, pero el criminal lo sorprende en la penumbra, dejándolo inconsciente de un golpe con la empuñadura de su cuchilla. Al despertar, Usan se encuentra atado a una silla mirando hacia el muelle. El asesino le ha arrebatado su amuleto del Kinkou y señala hacia el muelle, donde la joven Yevnai aguarda ajena al peligro. El psicópata se mofa de la 'simetría aburrida' del rostro de Yevnai mientras Zed solloza e implora por la vida de ella. Inesperadamente, Shen rompe la pared de madera de un puñetazo e inmoviliza al asesino contra el muro.",
+      "opciones": [
+        {
+          "texto": "Desenmascarar inmediatamente al prisionero al descubierto.",
+          "efectos": {
+            "resentimiento_zed": 3
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_revelacion_jhin"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_revelacion_jhin",
+      "titulo": "Bajo la Máscara del Demonio",
+      "fuente": "canon",
+      "narrativa": "La linterna ilumina el rostro del aterrador 'Demonio Dorado'. Para pasmo de todos, no hay cuernos ni fauces místicas: se trata únicamente de Khada Jhin, un humilde y tembloroso tramoyista de las compañías de teatro itinerantes de Zhyun. Toda la leyenda del monstruo sobrenatural se desmorona ante la realidad de un hombre cobarde y trastornado. Al ver al asesino acorralado, Usan se apodera de la cuarta cuchilla de Jhin y se abalanza furioso sobre él con la intención de cortarle el cuello y vengar a las familias destruidas durante cuatro años.",
+      "opciones": [
+        {
+          "texto": "Interceder como el Gran Maestro Kusho para detener el golpe mortal de Usan.",
+          "efectos": {
+            "resentimiento_zed": 5,
+            "ruptura_con_kinkou": 3
+          },
+          "condicion": "resentimiento_zed >= 3",
+          "siguiente_nodo": "nodo_juicio_kusho_zed"
+        },
+        {
+          "texto": "Exigir una resolución apegada a la estricta doctrina del Kinkou.",
+          "efectos": {
+            "desgaste_kusho": 3,
+            "resentimiento_zed": 3
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_juicio_kusho_kinkou"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_juicio_kusho_zed",
+      "titulo": "La Doctrina de la Discordia",
+      "fuente": "canon",
+      "narrativa": "Kusho frena el brazo de Usan en el último instante, salvando la vida de Khada Jhin. Zed clama indignado contra la piedad mostrada hacia un monstruo que ha asesinado a decenas de inocentes. Sin embargo, el Gran Maestro se mantiene firme: 'Si revelamos que este monstruo es un simple hombre, la fe y la armonía del pueblo de Ionia se destruirán por completo. Creerán que cualquiera puede cometer semejantes atrocidades'. La frialdad dogmática de Kusho horroriza a Usan, sembrando en su corazón una simiente de amargo rencor hacia la orden.",
+      "opciones": [
+        {
+          "texto": "Acatar la orden de encarcelar a Jhin en secreto en el monasterio prisión de Tuula.",
+          "efectos": {
+            "resentimiento_zed": 5,
+            "ruptura_con_kinkou": 5
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_final_tuula"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_juicio_kusho_kinkou",
+      "titulo": "El Juicio del Gran Maestro",
+      "fuente": "canon",
+      "narrativa": "El Gran Maestro Kusho detiene la hoja de Zed recordando a sus discípulos que ejecutar a un prisionero indefenso violaría el mandato Kinkou. Aunque Shen acata con pesar la fría lógica de su padre, Usan contempla estupefacto cómo el hombre que aterrorizó a Zhyun durante cuatro años es perdonado. Kusho determina que Jhin debe ser juzgado en secreto y trasladado sin juicio público a la prisión fortaleza del monasterio de Tuula, manteniendo viva ante el pueblo la leyenda de que el Demonio Dorado fue expulsado por la magia Kinkou.",
+      "opciones": [
+        {
+          "texto": "Trasladar bajo custodia secreta a Khada Jhin hacia el monasterio de Tuula.",
+          "efectos": {
+            "desgaste_kusho": 4,
+            "fe_publica": 10
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_final_tuula"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_final_tuula",
+      "titulo": "El Telón Cae en Tuula",
+      "fuente": "canon",
+      "narrativa": "Khada Jhin es encerrado de por vida en la prisión del monasterio de Tuula. En su confinamiento, mantiene sus secretos en absoluto hermetismo. Los monjes guardianes lo describen como un prisionero brillante y educado que destaca rápidamente en poesía, caligrafía, danza y forja, aunque incapaz de liberarse de sus macabras obsesiones. Mientras tanto, fuera de los muros de Tuula, la marea de la invasión noxiana se aproxima a Ionia, y fuerzas políticas en las sombras pronto verán en el prisionero el instrumento perfecto de terror...",
+      "opciones": [],
+      "nodo_final": true
+    }
+  ]
+}

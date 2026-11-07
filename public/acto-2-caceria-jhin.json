@@ -1,0 +1,235 @@
+{
+  "verificacion_lore": {
+    "canon": [
+      "Jhin fue liberado de la prisión de Tuula por facciones políticas radicales de Ionia (lideradas en secreto por Kusho a través de la Hermandad de Navori) tras la invasión noxiana.",
+      "Jhin recibió armamento Hextech avanzado impulsado por magia espiritual ioniana de las Armerías Kashuri, incluyendo su rifle 'Cuchicheo' (Whisper) y un acelerador de masa en el hombro.",
+      "Jhin llevó a cabo una serie de asesinatos teatrales en Piltover, Zaun e Ionia, atacando a miembros de la Orden de las Sombras de Zed.",
+      "Jhin envió un mensaje a Zed a través de una mensajera en una barca con un farol en la Taberna Kwol.",
+      "Kusho fingió su muerte en el pasado durante la guerra con Noxus con ayuda de Zed, pero asumió en secreto el liderazgo de la Hermandad de Navori.",
+      "Kusho utilizó las Lágrimas de la Sombra y manipuló a Jhin para aterrorizar Ionia y forzar su unificación bajo su mando ideológico.",
+      "Akali abandonó la Orden Kinkou para actuar de forma independiente como la Asesina Furtiva (Rogue Assassin). Rástreo a Jhin hasta Piltover/Zaun donde fue capturada antes de ser rescatada por Shen y Zed.",
+      "Shen y Zed forman una tregua incómoda para detener a Jhin, reabriendo viejas heridas del pasado.",
+      "Jhin destruyó el templo de Koyehn matando a cuatro maestros y quemando cuatro pisos tras una estancia de verano con el artista Hwei.",
+      "Al final del cómic, Zed confronta a Kusho y lo ejecuta tras descubrir su traición y corrupción con la magia sombría."
+    ],
+    "licencia_creativa": [
+      "Secuencia interactiva de investigación donde Akali toma decisiones tácticas autónomas en los callejones nocturnos antes de la emboscada.",
+      "Exploración retrospectiva de los lienzos quemados de Koyehn como un nodo de investigación de pistas artísticas.",
+      "Sistema de múltiples desenlaces condicionados por el nivel de confianza acumulado entre Shen y Zed y las pistas encontradas."
+    ],
+    "por_verificar": [
+      "Detalles exactos sobre cómo la Hermandad de Navori financió directamente las Armerías Kashuri en Piltover."
+    ]
+  },
+  "variables_iniciales": {
+    "resentimiento_zed": 3,
+    "fe_publica": 50,
+    "confianza_shen_zed": 20,
+    "corrupcion_kusho": 80,
+    "pistas_halladas": 0,
+    "estado_akali": "independiente"
+  },
+  "nodos": [
+    {
+      "id": "acto2_inicio",
+      "titulo": "Acto II: El Eco de Cuchicheo",
+      "fuente": "canon",
+      "narrativa": "Años después del encierro en Tuula, la invasión noxiana quebró la paz de Ionia. Desde las sombras de la Taberna Kwol, una mensajera entregó a Zed una hoja sintonizada en tela roja: Khada Jhin estaba libre. Armado con 'Cuchicheo', un rifle de masa mística forjado en las Armerías Kashuri que transforma la carne en grotescos florecimientos de lirios y oro, el Virtuoso ha vuelto a actuar. Sus balas resonaron desde los muelles de Zaun hasta los valles sagrados. Para detener la matanza, el Ojo del Crepúsculo, Shen, y el Maestro de las Sombras, Zed, se ven obligados a pactar una tregua amarga sobre las cenizas de su pasado.",
+      "opciones": [
+        {
+          "texto": "Rastrear las armas de Kashuri junto a Zed y la Orden de las Sombras.",
+          "efectos": {
+            "resentimiento_zed": 1,
+            "confianza_shen_zed": -10,
+            "pistas_halladas": 1
+          },
+          "condicion": null,
+          "siguiente_nodo": "rama_zed_kashuri"
+        },
+        {
+          "texto": "Examinar los rastros del plano espiritual con Shen y el Kinkou.",
+          "efectos": {
+            "confianza_shen_zed": 15,
+            "pistas_halladas": 1
+          },
+          "condicion": null,
+          "siguiente_nodo": "rama_shen_espiritual"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "rama_zed_kashuri",
+      "titulo": "El Calibre de Kashuri",
+      "fuente": "canon",
+      "narrativa": "En las fronteras de Navori, Zed examina los casquillos grabados con el número cuatro. Las Armerías Kashuri combinaron tecnología de Zaun con magia de espíritus ionianos para forjar el arma de Jhin. Zed reconoce el patrón: la liberación de Jhin no fue un accidente de la guerra, sino una operación financiada por patronos con inmenso poder político. 'Alguien con oro y conexiones en el consejo lo sacó de Tuula', murmura Zed, apretando los puños. Las pistas apuntan a que los ataques a los acólitos de las Sombras buscan forzar a Ionia a militarizarse.",
+      "opciones": [
+        {
+          "texto": "Investigar el origen de los fondos en la Hermandad de Navori.",
+          "efectos": {
+            "pistas_halladas": 1,
+            "corrupcion_kusho": 10
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_reconvergencia_investigacion"
+        },
+        {
+          "texto": "Seguir el rastro personal de Jhin hacia las ruinas del templo de Koyehn.",
+          "efectos": {
+            "pistas_halladas": 1,
+            "resentimiento_zed": 1
+          },
+          "condicion": null,
+          "siguiente_nodo": "trasfondo_koyehn"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "rama_shen_espiritual",
+      "titulo": "La Resonancia del Crepúsculo",
+      "fuente": "canon",
+      "narrativa": "Shen contempla la corriente espiritual fracturada. Cada disparo de 'Cuchicheo' desgarra el velo entre los mundos, dejando cicatrices de magia alterada donde florecen pétalos de fuego y sangre. 'Jhin no mata por caos azaroso; sigue una partitura matemática', observa Shen con serenidad sombría. Las firmas mágicas revelan que las armas místicas fueron cargadas con sellos de alto nivel del Kinkou, sellos que solo los antiguos maestros del orden conocían. El Ojo del Crepúsculo percibe una presencia familiar y perturbadora en el flujo astral.",
+      "opciones": [
+        {
+          "texto": "Compartir la revelación de los sellos Kinkou con Zed.",
+          "efectos": {
+            "confianza_shen_zed": 20,
+            "pistas_halladas": 1
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_reconvergencia_investigacion"
+        },
+        {
+          "texto": "Analizar la masacre del monasterio de Koyehn.",
+          "efectos": {
+            "pistas_halladas": 1,
+            "fe_publica": -10
+          },
+          "condicion": null,
+          "siguiente_nodo": "trasfondo_koyehn"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "trasfondo_koyehn",
+      "titulo": "Las Cenizas de Koyehn",
+      "fuente": "canon",
+      "narrativa": "Las ruinas del monasterio de Koyehn aún huelen a pigmentos quemados y madera carbonizada. Aquí, Jhin pasó un verano entero con el joven pintor Hwei antes de mostrar su verdadera naturaleza: destruyó cuatro obras maestras, ejecutó a cuatro maestros del templo y quemó los cuatro pisos inferiores hasta derrumbar el santuario. Entre las cenizas, encontráis una nota intacta escrita con caligrafía perfecta: 'La verdad del arte solo florece en la destrucción final'. El patrón de cuatro elementos confirma que el objetivo final de Jhin es un espectáculo donde los tres cazadores sean los protagonistas.",
+      "opciones": [
+        {
+          "texto": "Reunirse con Akali en las calles fronterizas.",
+          "efectos": {
+            "pistas_halladas": 1,
+            "estado_akali": "alerta"
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_akali_infiltracion"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_reconvergencia_investigacion",
+      "titulo": "La Red de los Patronos",
+      "fuente": "canon",
+      "narrativa": "Las pistas de Kashuri y los sellos espirituales convergen en una sola verdad: Jhin es la pieza de ajedrez de un complot mayor. La Hermandad de Navori ha estado recibiendo recursos desmedidos para desestabilizar las provincias. Shen y Zed se observan a través del humo de la hoguera. 'Quien liberó al demonio buscaba que Ionia suplicara por un líder de hierro', señala Zed. Shen asiente a regañadientes. Sin embargo, antes de poder dar con la guarida principal, descubren que Akali ha actuado por su cuenta siguiendo el rastro de Jhin hasta los límites urbanos.",
+      "opciones": [
+        {
+          "texto": "Seguir el rastro clandestino de Akali.",
+          "efectos": {
+            "estado_akali": "en_peligro"
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_akali_infiltracion"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_akali_infiltracion",
+      "titulo": "El Vuelo de la Kunai",
+      "fuente": "original",
+      "narrativa": "Akali se desliza entre los tejados oscuros, al margen de la doctrina del Kinkou y de la brutalidad de las Sombras. Tras rastrear a Jhin desde los valles de Ionia hasta las estructuras fronterizas, localiza un almacén custodiado por mercenarios de Navori. Moviéndose con la agilidad de la Asesina Furtiva, liquida a los guardias en silencio. Dentro, encuentra mapas de despliegue militar y una trampa teatral preparada con trampas de loto místico. Antes de que pueda retirarse, la puerta se cierra con un chasquido metálico. La voz de Jhin resuena desde el piso superior: 'Cada función requiere una musa en apuros...'.",
+      "opciones": [
+        {
+          "texto": "Luchar para escapar y enviar una señal a Shen y Zed.",
+          "efectos": {
+            "confianza_shen_zed": 10,
+            "pistas_halladas": 1
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_revelacion_kusho"
+        },
+        {
+          "texto": "Intentar encarar directamente a Jhin en el escenario.",
+          "efectos": {
+            "resentimiento_zed": 1,
+            "estado_akali": "capturada"
+          },
+          "condicion": null,
+          "siguiente_nodo": "nodo_revelacion_kusho"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "nodo_revelacion_kusho",
+      "titulo": "La Sombra del Gran Maestro",
+      "fuente": "canon",
+      "narrativa": "Shen y Zed irrumpen en el teatro abandonado donde Akali está retenida bajo la mira de 'Cuchicheo'. Pero detrás del escenario no emerge solo Jhin, sino una figura envuelta en sombras reales y coronada con adornos regios: el Gran Maestro Kusho. Revela que fingió su muerte años atrás con la complicidad de Zed durante la guerra noxiana, utilizando las Lágrimas de la Sombra para asumir el mando de la Hermandad de Navori. 'Liberé a Jhin porque Ionia necesitaba el terror para despertar y unificarse bajo mi dominio', declara Kusho con frialdad corrupta. El maestro que enseñó el Equilibrio es la cabeza de la conspiración.",
+      "opciones": [
+        {
+          "texto": "Unir fuerzas con Shen para derrotar la traición de Kusho.",
+          "efectos": {
+            "confianza_shen_zed": 30
+          },
+          "condicion": "confianza_shen_zed >= 25",
+          "siguiente_nodo": "final_canonico_justicia"
+        },
+        {
+          "texto": "Ceder ante la ira y ejecutar a Kusho sin piedad.",
+          "efectos": {
+            "resentimiento_zed": 5
+          },
+          "condicion": "resentimiento_zed >= 4",
+          "siguiente_nodo": "final_sombras_venganza"
+        },
+        {
+          "texto": "Priorizar la captura de Jhin mientras el santuario colapsa.",
+          "efectos": {
+            "pistas_halladas": 3
+          },
+          "condicion": "pistas_halladas >= 2",
+          "siguiente_nodo": "final_equilibrio_trágico"
+        }
+      ],
+      "nodo_final": false
+    },
+    {
+      "id": "final_canonico_justicia",
+      "titulo": "Final: La Caída del Falso Maestro",
+      "fuente": "canon",
+      "narrativa": "Shen y Zed luchan hombro con hombro como en los viejos tiempos. Zed supera los tormentos de la magia sombría y acaba con la vida de Kusho para proteger a Ionia de su tiranía, mientras Shen libera a Akali de las trampas de Jhin. Aunque el Virtuoso aprovecha la confusión para desvanecerse en las sombras con su rifle, la conspiración de Navori ha sido desmantelada. El pacto entre el Kinkou y la Orden de las Sombras se disuelve en un silencio amargo: la verdad sobre Kusho permanece en secreto para proteger la paz, y la cacería de Khada Jhin continuará eternamente en Runaterra.",
+      "opciones": [],
+      "nodo_final": true
+    },
+    {
+      "id": "final_sombras_venganza",
+      "titulo": "Final: El Dominio de las Sombras",
+      "fuente": "adaptado",
+      "narrativa": "Consumido por el resentimiento acumulado desde la cacería de Zhyun, Zed ejecuta a Kusho con brutalidad y reclama el control total de la Hermandad de Navori junto a su orden. Horrorizado por el desprecio hacia el Equilibrio, Shen se retira llevando a Akali a salvo, rompiendo toda relación con su antiguo hermano. Jhin observa la escena desde la distancia, riendo entre sombras antes de retirarse a Zaun: ha logrado su mayor obra de arte, dividiendo para siempre a los defensores de Ionia.",
+      "opciones": [],
+      "nodo_final": true
+    },
+    {
+      "id": "final_equilibrio_trágico",
+      "titulo": "Final: El Telón del Crepúsculo",
+      "fuente": "adaptado",
+      "narrativa": "Focusing únicamente en cazar a Jhin, Shen y Zed logran acorralar al Virtuoso antes de que accione sus detonadores. Sin embargo, Kusho utiliza las Lágrimas de la Sombra para escapar hacia las tierras del norte, consolidando el poder de Navori. Jhin es devuelto a una celda de máxima seguridad, pero Ionia queda dividida por la guerra civil inminente. Akali mira a sus antiguos mentores sabiendo que el verdadero demonio ya no lleva máscara.",
+      "opciones": [],
+      "nodo_final": true
+    }
+  ]
+}

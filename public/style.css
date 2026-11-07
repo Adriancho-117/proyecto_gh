@@ -1,0 +1,192 @@
+[data-bs-theme="dark"] {
+  color-scheme: dark;
+  --bg-void: #0B0E14;
+  --bg-panel: #161B26;
+  --text-primary: #F0E6D2;
+  --accent-gold: #E5C158;
+  --accent-danger: #FF5555;
+  --border-subtle: rgba(229, 193, 88, 0.3);
+  --bs-body-bg: var(--bg-void);
+  --bs-body-color: var(--text-primary);
+  --bs-card-bg: var(--bg-panel);
+  --bs-card-color: var(--text-primary);
+  --bs-secondary-color: rgba(240, 230, 210, 0.72);
+  --bs-tertiary-bg: var(--bg-panel);
+  --bs-border-color: var(--border-subtle);
+  --bs-warning: var(--accent-gold);
+  --bs-warning-rgb: 229, 193, 88;
+  --bs-danger: var(--accent-danger);
+  --bs-danger-rgb: 255, 85, 85;
+  --bs-link-color: var(--accent-gold);
+  --bs-link-hover-color: #F0D98A;
+}
+
+html,
+body {
+  min-height: 100%;
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at 50% 0, rgba(229, 193, 88, 0.08), transparent 55%);
+}
+
+.game-card {
+  --bs-card-bg: var(--bg-panel);
+  --bs-card-color: var(--text-primary);
+  min-height: min(82vh, 58rem);
+  border-color: var(--border-subtle);
+  box-shadow: 0 1.25rem 3.5rem rgba(0, 0, 0, 0.32);
+}
+
+.game-header {
+  border-color: var(--border-subtle);
+  color: var(--bs-secondary-color);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sigil,
+.stage h2,
+.choice-btn .idx {
+  color: var(--accent-gold);
+}
+
+.game-header .badge {
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.stage {
+  flex: 1 1 auto;
+  max-height: 58vh;
+  overflow-y: auto;
+  background-color: var(--bg-panel);
+  background-image:
+    radial-gradient(ellipse at 15% 10%, rgba(229, 193, 88, 0.07), transparent 42%),
+    repeating-linear-gradient(0deg, rgba(240, 230, 210, 0.012) 0 1px, transparent 1px 5px);
+  line-height: 1.8;
+  scrollbar-color: var(--border-subtle) var(--bg-panel);
+  scrollbar-width: thin;
+}
+
+.stage h2 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.stage p {
+  max-width: 68ch;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.stage .menu-title {
+  margin-bottom: 1.125rem;
+}
+
+.stage .menu-intro {
+  font-weight: 600;
+}
+
+.choices {
+  border-color: var(--border-subtle);
+}
+
+.choice-btn,
+.restart-btn {
+  text-align: left;
+  transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.choice-btn {
+  --bs-btn-color: var(--text-primary);
+  --bs-btn-border-color: var(--border-subtle);
+  --bs-btn-hover-color: var(--bg-void);
+  --bs-btn-hover-bg: var(--accent-gold);
+  --bs-btn-hover-border-color: var(--accent-gold);
+  --bs-btn-active-color: var(--bg-void);
+  --bs-btn-active-bg: #D3AD45;
+  --bs-btn-active-border-color: #D3AD45;
+  --bs-btn-disabled-color: rgba(240, 230, 210, 0.55);
+  --bs-btn-disabled-border-color: rgba(240, 230, 210, 0.2);
+}
+
+.choice-btn .idx {
+  flex: 0 0 auto;
+  min-width: 2rem;
+}
+
+.choice-btn:hover {
+  transform: translateX(0.2rem);
+}
+
+.restart-btn {
+  --bs-btn-color: var(--bs-secondary-color);
+  --bs-btn-border-color: var(--border-subtle);
+  --bs-btn-hover-color: var(--text-primary);
+  --bs-btn-hover-bg: rgba(240, 230, 210, 0.12);
+  --bs-btn-hover-border-color: rgba(240, 230, 210, 0.55);
+  --bs-btn-active-color: var(--text-primary);
+  --bs-btn-active-bg: rgba(240, 230, 210, 0.18);
+  --bs-btn-active-border-color: rgba(240, 230, 210, 0.65);
+}
+
+.ending-tag {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--bs-border-radius-sm);
+  color: var(--accent-gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.menu-hint {
+  margin: 0.5rem 0 0;
+  color: var(--bs-secondary-color);
+  font-size: 0.75rem;
+}
+
+.loading-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--bs-secondary-color);
+}
+
+.feedback-message {
+  border-color: rgba(var(--bs-danger-rgb), 0.45);
+  background-color: rgba(var(--bs-danger-rgb), 0.1);
+  color: var(--text-primary);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent-gold);
+  outline-offset: 3px;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--accent-gold);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 0.25rem rgba(229, 193, 88, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
