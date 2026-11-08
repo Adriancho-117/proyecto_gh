@@ -5,6 +5,7 @@ import { createActState, getAvailableChoices, selectChoice } from './engine.mjs'
 const stageEl = document.getElementById('stage');
 const choicesEl = document.getElementById('choices');
 const themeToggleEl = document.getElementById('theme-toggle');
+const restartProgressEl = document.getElementById('restart-progress');
 const ACT1_COMPLETE_KEY = 'jhin-act-1-complete';
 const THEME_KEY = 'jhin-theme';
 let stories;
@@ -25,6 +26,13 @@ themeToggleEl.addEventListener('click', () => {
   const nextTheme = document.body.dataset.bsTheme === 'dark' ? 'light' : 'dark';
   setTheme(nextTheme);
   localStorage.setItem(THEME_KEY, nextTheme);
+});
+
+restartProgressEl.addEventListener('click', () => {
+  localStorage.removeItem(ACT1_COMPLETE_KEY);
+  currentAct = undefined;
+  currentState = undefined;
+  if (stories) showMenu();
 });
 
 document.addEventListener('keydown', (e) => {

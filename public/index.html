@@ -13,15 +13,18 @@
 </head>
 <body data-bs-theme="dark">
 <main class="container py-4 py-lg-5">
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-10 col-lg-8">
+  <div class="row">
+    <div class="col-12 col-md-8 mx-auto">
       <section class="card game-card">
         <header class="card-header game-header d-flex justify-content-between align-items-center gap-2 py-3 px-3 px-sm-4">
           <span><span class="sigil" aria-hidden="true"></span> runaterra · crónicas de Jonia</span>
-          <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="true" aria-label="Cambiar a modo claro">☼ Claro</button>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-outline-danger btn-sm" id="restart-progress" type="button" aria-label="Reiniciar Progreso">Reiniciar Progreso</button>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="true" aria-label="Cambiar a modo claro">☼ Claro</button>
+          </div>
         </header>
         <div class="card-body stage p-4 p-md-5" id="stage" role="region" aria-live="polite" aria-atomic="true" aria-busy="true" aria-label="Texto de la historia">
-          <div class="loading-indicator" role="status">
+          <div class="loading-indicator" role="status" aria-label="Cargando la historia...">
             <span class="spinner-border spinner-border-sm text-warning" aria-hidden="true"></span>
             <span>Cargando la historia...</span>
           </div>
@@ -32,6 +35,7 @@
   </div>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GKCIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script type="module" src="./main.mjs"></script>
 </body>
 </html>
