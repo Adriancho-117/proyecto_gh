@@ -2,7 +2,7 @@
   "verificacion_lore": {
     "canon": [
       "Jhin fue liberado de la prisión de Tuula por facciones políticas radicales de Ionia (lideradas en secreto por Kusho a través de la Hermandad de Navori) tras la invasión noxiana.",
-      "Jhin recibió armamento Hextech avanzado impulsado por magia espiritual ioniana de las Armerías Kashuri, incluyendo su rifle 'Cuchicheo' (Whisper) y un acelerador de masa en el hombro.",
+      "Jhin recibió armamento Hextech avanzado impulsado por magia espiritual ioniana de las Armerías Kashuri, incluyendo su rifle 'whisper' (Whisper) y un acelerador de masa en el hombro.",
       "Jhin llevó a cabo una serie de asesinatos teatrales en Piltover, Zaun e Ionia, atacando a miembros de la Orden de las Sombras de Zed.",
       "Jhin envió un mensaje a Zed a través de una mensajera en una barca con un farol en la Taberna Kwol.",
       "Kusho fingió su muerte en el pasado durante la guerra con Noxus con ayuda de Zed, pero asumió en secreto el liderazgo de la Hermandad de Navori.",
@@ -32,9 +32,9 @@
   "nodos": [
     {
       "id": "acto2_inicio",
-      "titulo": "Acto II: El Eco de Cuchicheo",
+      "titulo": "Acto II: El Eco de whisper",
       "fuente": "canon",
-      "narrativa": "Años después del encierro en Tuula, la invasión noxiana quebró la paz de Ionia. Desde las sombras de la Taberna Kwol, una mensajera entregó a Zed una hoja sintonizada en tela roja: Khada Jhin estaba libre. Armado con 'Cuchicheo', un rifle de masa mística forjado en las Armerías Kashuri que transforma la carne en grotescos florecimientos de lirios y oro, el Virtuoso ha vuelto a actuar. Sus balas resonaron desde los muelles de Zaun hasta los valles sagrados. Para detener la matanza, el Ojo del Crepúsculo, Shen, y el Maestro de las Sombras, Zed, se ven obligados a pactar una tregua amarga sobre las cenizas de su pasado.",
+      "narrativa": "Años después del encierro en Tuula, la invasión noxiana quebró la paz de Ionia. Desde las sombras de la Taberna Kwol, una mensajera entregó a Zed una hoja sintonizada en tela roja: Khada Jhin estaba libre. Armado con 'whisper', un rifle de masa mística forjado en las Armerías Kashuri que transforma la carne en grotescos florecimientos de lirios y oro, el Virtuoso ha vuelto a actuar. Sus balas resonaron desde los muelles de Zaun hasta los valles sagrados. Para detener la matanza, el Ojo del Crepúsculo, Shen, y el Maestro de las Sombras, Zed, se ven obligados a pactar una tregua amarga sobre las cenizas de su pasado.",
       "opciones": [
         {
           "texto": "Rastrear las armas de Kashuri junto a Zed y la Orden de las Sombras.",
@@ -89,7 +89,7 @@
       "id": "rama_shen_espiritual",
       "titulo": "La Resonancia del Crepúsculo",
       "fuente": "canon",
-      "narrativa": "Shen contempla la corriente espiritual fracturada. Cada disparo de 'Cuchicheo' desgarra el velo entre los mundos, dejando cicatrices de magia alterada donde florecen pétalos de fuego y sangre. 'Jhin no mata por caos azaroso; sigue una partitura matemática', observa Shen con serenidad sombría. Las firmas mágicas revelan que las armas místicas fueron cargadas con sellos de alto nivel del Kinkou, sellos que solo los antiguos maestros del orden conocían. El Ojo del Crepúsculo percibe una presencia familiar y perturbadora en el flujo astral.",
+      "narrativa": "Shen contempla la corriente espiritual fracturada. Cada disparo de 'whisper' desgarra el velo entre los mundos, dejando cicatrices de magia alterada donde florecen pétalos de fuego y sangre. 'Jhin no mata por caos azaroso; sigue una partitura matemática', observa Shen con serenidad sombría. Las firmas mágicas revelan que las armas místicas fueron cargadas con sellos de alto nivel del Kinkou, sellos que solo los antiguos maestros del orden conocían. El Ojo del Crepúsculo percibe una presencia familiar y perturbadora en el flujo astral.",
       "opciones": [
         {
           "texto": "Compartir la revelación de los sellos Kinkou con Zed.",
@@ -178,7 +178,7 @@
       "id": "nodo_revelacion_kusho",
       "titulo": "La Sombra del Gran Maestro",
       "fuente": "canon",
-      "narrativa": "Shen y Zed irrumpen en el teatro abandonado donde Akali está retenida bajo la mira de 'Cuchicheo'. Pero detrás del escenario no emerge solo Jhin, sino una figura envuelta en sombras reales y coronada con adornos regios: el Gran Maestro Kusho. Revela que fingió su muerte años atrás con la complicidad de Zed durante la guerra noxiana, utilizando las Lágrimas de la Sombra para asumir el mando de la Hermandad de Navori. 'Liberé a Jhin porque Ionia necesitaba el terror para despertar y unificarse bajo mi dominio', declara Kusho con frialdad corrupta. El maestro que enseñó el Equilibrio es la cabeza de la conspiración.",
+      "narrativa": "Shen y Zed irrumpen en el teatro abandonado donde Akali está retenida bajo la mira de 'whisper'. Pero detrás del escenario no emerge solo Jhin, sino una figura envuelta en sombras reales y coronada con adornos regios: el Gran Maestro Kusho. Revela que fingió su muerte años atrás con la complicidad de Zed durante la guerra noxiana, utilizando las Lágrimas de la Sombra para asumir el mando de la Hermandad de Navori. 'Liberé a Jhin porque Ionia necesitaba el terror para despertar y unificarse bajo mi dominio', declara Kusho con frialdad corrupta. El maestro que enseñó el Equilibrio es la cabeza de la conspiración.",
       "opciones": [
         {
           "texto": "Unir fuerzas con Shen para derrotar la traición de Kusho.",

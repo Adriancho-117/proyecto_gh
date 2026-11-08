@@ -1,113 +1,197 @@
+
+
 [data-bs-theme="dark"] {
   color-scheme: dark;
+
+  
   --bg-void: #18191d;
   --bg-panel: #292a30;
-  --text-primary: #f0e6d2;
-  --accent-gold: #E5C158;
-  --accent-danger: #FF5555;
-  --border-subtle: #73747a;
   --raised-surface: #37383e;
+  --stage-bg: #222329;
+
+  
+  --text-primary: #f0e6d2;
+  --text-secondary: rgba(240, 230, 210, 0.72);
+  --text-disabled: rgba(240, 230, 210, 0.55);
+
+  
+  --accent-gold: #e5c158;
+  --accent-danger: #ff8888;
+
+  
+  --border-subtle: #85868c;
   --raised-border: #8d8e94;
+  --header-border: #85868c;
+
+  
   --title-bar: #000080;
   --title-text: #ffffff;
-  --stage-bg: #222329;
-  --stage-border: #55565c;
   --hover-bg: #000080;
   --hover-text: #ffffff;
-  --hover-marker: #E5C158;
+  --hover-marker: #e5c158;
+
+  
+  --code-line: #b9b9be;
+  --code-string: #e5c158;
+  --code-comment: #9bd38a;
+
+  
+  --ambient-glow: rgba(229, 193, 88, 0.08);
+  --stage-glow: rgba(229, 193, 88, 0.07);
+  --stage-texture: rgba(240, 230, 210, 0.012);
+  --card-shadow: 0 1.25rem 3.5rem rgba(0, 0, 0, 0.32);
+
+
   --bs-body-bg: var(--bg-void);
   --bs-body-color: var(--text-primary);
   --bs-card-bg: var(--bg-panel);
   --bs-card-color: var(--text-primary);
-  --bs-secondary-color: rgba(240, 230, 210, 0.72);
+  --bs-secondary-color: var(--text-secondary);
   --bs-tertiary-bg: var(--bg-panel);
   --bs-border-color: var(--border-subtle);
+
   --bs-warning: var(--accent-gold);
   --bs-warning-rgb: 229, 193, 88;
   --bs-danger: var(--accent-danger);
-  --bs-danger-rgb: 255, 85, 85;
+  --bs-danger-rgb: 255, 136, 136;
+
   --bs-link-color: var(--accent-gold);
-  --bs-link-hover-color: #F0D98A;
+  --bs-link-hover-color: #f0d98a;
 }
 
 [data-bs-theme="light"] {
   color-scheme: light;
+
+
   --bg-void: #d4d0c8;
   --bg-panel: #c0c0c0;
+  --raised-surface: #c0c0c0;
+  --stage-bg: #ffffff;
+
+  
   --text-primary: #000000;
+  --text-secondary: #404040;
+  --text-disabled: #808080;
+
+  
   --accent-gold: #000080;
   --accent-danger: #800000;
-  --border-subtle: #808080;
-  --raised-surface: #c0c0c0;
-  --raised-border: #ffffff;
+
+  
+  --border-subtle: #666666;
+  --raised-border: #666666;
+  --header-border: #ffffff;
+
+  
   --title-bar: #000080;
   --title-text: #ffffff;
-  --stage-bg: #ffffff;
-  --stage-border: #808080;
   --hover-bg: #000080;
   --hover-text: #ffffff;
   --hover-marker: #ffffff;
+
+  
+  --code-line: #4a4a4a;
+  --code-string: #595959;
+  --code-comment: #006400;
+
+  
+  --ambient-glow: transparent;
+  --stage-glow: transparent;
+  --stage-texture: transparent;
+  --card-shadow: 0 1.25rem 3.5rem rgba(0, 0, 0, 0.15);
+
+  
   --bs-body-bg: var(--bg-void);
   --bs-body-color: var(--text-primary);
   --bs-card-bg: var(--bg-panel);
   --bs-card-color: var(--text-primary);
-  --bs-secondary-color: #404040;
-  --bs-tertiary-bg: #d4d0c8;
+  --bs-secondary-color: var(--text-secondary);
+  --bs-tertiary-bg: var(--bg-void);
   --bs-border-color: var(--border-subtle);
+
   --bs-warning: var(--accent-gold);
   --bs-warning-rgb: 0, 0, 128;
   --bs-danger: var(--accent-danger);
   --bs-danger-rgb: 128, 0, 0;
+
   --bs-link-color: #000080;
   --bs-link-hover-color: #0000ff;
 }
+
 
 html,
 body {
   min-height: 100%;
   background-color: var(--bg-void);
   color: var(--text-primary);
+}
 
+html {
+  font-size: 100%;
 }
 
 body {
   background-image:
-    radial-gradient(ellipse at 50% 0, rgba(229, 193, 88, 0.08), transparent 55%);
+    radial-gradient(
+      ellipse at 50% 0,
+      var(--ambient-glow),
+      transparent 55%
+    );
 }
 
-body[data-bs-theme="light"] {
-  background-image: none;
+* {
+  scrollbar-color: var(--border-subtle) var(--raised-surface);
+  scrollbar-width: thin;
+}
+
+
+
+
+.card-container {
+  width: 100%;
+  max-width: 100%;
 }
 
 .game-card {
   --bs-card-bg: var(--bg-panel);
   --bs-card-color: var(--text-primary);
+
+  width: 100%;
+  max-width: 100%;
   min-height: min(82vh, 58rem);
+
   border: 2px outset var(--raised-border);
   border-radius: 0;
-  box-shadow: 0 1.25rem 3.5rem rgba(0, 0, 0, 0.32);
+  box-shadow: var(--card-shadow);
 }
 
 .game-header {
-  border: 0;
-  border-bottom: 1px solid #000000;
-  background: var(--title-bar);
+  border-bottom: 1px solid var(--header-border);
+  background-color: var(--title-bar);
   color: var(--title-text);
-  font-size: 0.75rem;
+
+  font-size: 0.875rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
+.game-header .badge {
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+
 .theme-toggle {
   flex: 0 0 auto;
   padding: 0.2rem 0.55rem;
+
   border: 2px outset var(--raised-border);
   border-radius: 0;
+
   background: var(--raised-surface);
   color: var(--text-primary);
-  font: 600 0.75rem Tahoma, sans-serif;
-  letter-spacing: normal;
-  text-transform: none;
+
+  font: 600 0.875rem Tahoma, sans-serif;
   cursor: pointer;
 }
 
@@ -120,38 +204,40 @@ body[data-bs-theme="light"] {
   border-style: inset;
 }
 
-.sigil,
-.stage h2,
-.choice-btn .idx {
-  color: var(--accent-gold);
-}
 
-.game-header .badge {
-  letter-spacing: normal;
-  text-transform: none;
-}
+
 
 .stage {
   flex: 1 1 auto;
+  min-height: 0;
   max-height: 58vh;
   overflow-y: auto;
+
+  padding: 1rem;
+
   background-color: var(--stage-bg);
   background-image:
-    radial-gradient(ellipse at 15% 10%, rgba(229, 193, 88, 0.07), transparent 42%),
-    repeating-linear-gradient(0deg, rgba(240, 230, 210, 0.012) 0 1px, transparent 1px 5px);
-  line-height: 1.8;
+    radial-gradient(
+      ellipse at 15% 10%,
+      var(--stage-glow),
+      transparent 42%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      var(--stage-texture) 0 1px,
+      transparent 1px 5px
+    );
+
   border: 2px inset var(--stage-border);
   border-radius: 0;
-  scrollbar-color: var(--border-subtle) var(--raised-surface);
-  scrollbar-width: thin;
-}
 
-[data-bs-theme="light"] .stage {
-  background-image: none;
+  line-height: 1.8;
 }
 
 .stage h2 {
   margin-bottom: 1rem;
+
+  color: var(--accent-gold);
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.055em;
@@ -161,8 +247,9 @@ body[data-bs-theme="light"] {
 .stage p {
   max-width: 68ch;
   margin-bottom: 1rem;
+
   color: var(--text-primary);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .stage .menu-title {
@@ -172,6 +259,7 @@ body[data-bs-theme="light"] {
 .stage .menu-intro {
   font-weight: 600;
 }
+
 
 .choices {
   border: 0;
@@ -184,28 +272,54 @@ body[data-bs-theme="light"] {
 .restart-btn {
   border: 2px outset var(--raised-border);
   border-radius: 0;
+
   background: var(--raised-surface);
   text-align: left;
-  transition: color 120ms ease, background-color 120ms ease;
+
+  transition:
+    color 120ms ease,
+    background-color 120ms ease;
 }
+
+
 
 .choice-btn {
   --bs-btn-color: var(--text-primary);
   --bs-btn-border-color: var(--border-subtle);
+
   --bs-btn-hover-color: var(--hover-text);
   --bs-btn-hover-bg: var(--hover-bg);
   --bs-btn-hover-border-color: var(--raised-border);
+
   --bs-btn-active-color: var(--hover-text);
   --bs-btn-active-bg: var(--hover-bg);
   --bs-btn-active-border-color: var(--raised-border);
-  --bs-btn-disabled-color: rgba(240, 230, 210, 0.55);
-  --bs-btn-disabled-border-color: rgba(240, 230, 210, 0.2);
+
+  --bs-btn-disabled-color: var(--text-disabled);
+  --bs-btn-disabled-border-color: var(--border-subtle);
 }
 
 .choice-btn .idx {
   flex: 0 0 auto;
   min-width: 2rem;
+  color: var(--accent-gold);
 }
+
+
+.restart-btn {
+  --bs-btn-color: var(--bs-secondary-color);
+  --bs-btn-border-color: var(--border-subtle);
+
+  --bs-btn-hover-color: var(--hover-text);
+  --bs-btn-hover-bg: var(--hover-bg);
+  --bs-btn-hover-border-color: var(--raised-border);
+
+  --bs-btn-active-color: var(--hover-text);
+  --bs-btn-active-bg: var(--hover-bg);
+  --bs-btn-active-border-color: var(--raised-border);
+}
+
+
 
 .choice-btn:hover,
 .restart-btn:hover {
@@ -221,31 +335,19 @@ body[data-bs-theme="light"] {
   border-style: inset;
 }
 
-.restart-btn {
-  --bs-btn-color: var(--bs-secondary-color);
-  --bs-btn-border-color: var(--border-subtle);
-  --bs-btn-hover-color: var(--hover-text);
-  --bs-btn-hover-bg: var(--hover-bg);
-  --bs-btn-hover-border-color: var(--raised-border);
-  --bs-btn-active-color: var(--hover-text);
-  --bs-btn-active-bg: var(--hover-bg);
-  --bs-btn-active-border-color: var(--raised-border);
-}
 
-[data-bs-theme="light"] .choice-btn,
-[data-bs-theme="light"] .restart-btn {
-  --bs-btn-disabled-color: #808080;
-  --bs-btn-disabled-border-color: #808080;
-}
+
 
 .ending-tag {
   display: inline-block;
   margin-bottom: 0.75rem;
   padding: 0.125rem 0.5rem;
+
   border: 1px solid var(--accent-gold);
-  border-radius: var(--bs-border-radius-sm);
+  border-radius: 0;
+
   color: var(--accent-gold);
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -253,31 +355,66 @@ body[data-bs-theme="light"] {
 .menu-hint {
   margin: 0.5rem 0 0;
   color: var(--bs-secondary-color);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
+
+
+.line-numbers {
+  color: var(--code-line);
+}
+
+.code-string {
+  color: var(--code-string);
+}
+
+.code-comment {
+  color: var(--code-comment);
+}
+
 
 .loading-indicator {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+
   color: var(--bs-secondary-color);
 }
 
 .feedback-message {
-  border-color: rgba(var(--bs-danger-rgb), 0.45);
+  border-color: var(--accent-danger);
   background-color: rgba(var(--bs-danger-rgb), 0.1);
   color: var(--text-primary);
 }
+
+
+
 
 :focus-visible {
   outline: 3px solid var(--accent-gold);
   outline-offset: 3px;
 }
 
-.btn:focus-visible {
-  outline: 3px solid var(--accent-gold);
-  outline-offset: 3px;
-  box-shadow: 0 0 0 0.25rem rgba(229, 193, 88, 0.25);
+.btn:focus-visible,
+.card-tab:focus-visible,
+.copy-button:focus-visible,
+.theme-toggle:focus-visible,
+.choice-btn:focus-visible,
+.restart-btn:focus-visible {
+  outline: 2px solid var(--title-text);
+  outline-offset: 1px;
+  box-shadow: 0 0 0 4px var(--title-bar);
+}
+
+
+@media (max-width: 576px) {
+  .game-card {
+    min-height: 85vh;
+  }
+
+  .stage {
+    max-height: 65vh;
+    padding: 0.875rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -286,5 +423,7 @@ body[data-bs-theme="light"] {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
