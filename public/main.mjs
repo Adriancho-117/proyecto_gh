@@ -83,7 +83,9 @@ async function start() {
     const alert = document.createElement('div');
     alert.className = 'alert alert-danger feedback-message mb-0';
     alert.setAttribute('role', 'alert');
-    alert.textContent = 'No se pudo cargar la historia. Verifica tu conexión o recarga la página.';
+    alert.textContent = error instanceof Error
+      ? error.message
+      : 'No se pudo cargar la historia. Verifica tu conexión e inténtalo de nuevo.';
     stageEl.appendChild(alert);
     choicesEl.replaceChildren();
   }

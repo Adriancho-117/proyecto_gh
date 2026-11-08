@@ -1,13 +1,11 @@
 
+import { fetchAct } from './script.js';
+
 const STORY_TITLE = 'La Cacería del Demonio Dorado';
 
-async function loadAct(file) {
-  const response = await fetch(file);
-  if (!response.ok) {
-    throw new Error(`No se pudo cargar ${file}: respuesta ${response.status}`);
-  }
-
-  const act = await response.json();
+async function loadAct(actId) {
+  const file = `/api/actos/${actId}`;
+  const act = await fetchAct(actId);
   if (!act.variables_iniciales || typeof act.variables_iniciales !== 'object' ||
       Array.isArray(act.variables_iniciales) || !Array.isArray(act.nodos) || act.nodos.length === 0) {
     throw new Error(`El archivo ${file} no contiene datos de acto en el formato esperado.`);
@@ -44,8 +42,8 @@ async function loadAct(file) {
 
 export async function loadStories() {
   const [act1, act2] = await Promise.all([
-    loadAct('./acto_1_sombras_de_zhyun%20.json'),
-    loadAct('./acto_2_caceria-jhin.json')
+    loadAct(1),
+    loadAct(2)
   ]);
 
   return { title: STORY_TITLE, act1, act2 };
