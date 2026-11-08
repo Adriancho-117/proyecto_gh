@@ -31,7 +31,7 @@ Para desarrollo con reinicio automático del servidor al cambiar archivos, ejecu
 
 ## Variables de entorno
 
-Crea un archivo `.env` a partir de `.env.example` si necesitas cambiar el puerto o los orígenes permitidos:
+Crea un archivo `.env` a partir de `.env.example` si necesitas cambiar el puerto o los orígenes permitidos: 
 
 ```env
 PORT=3000
