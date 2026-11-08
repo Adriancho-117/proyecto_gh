@@ -4,10 +4,28 @@ import { createActState, getAvailableChoices, selectChoice } from './engine.mjs'
 
 const stageEl = document.getElementById('stage');
 const choicesEl = document.getElementById('choices');
+const themeToggleEl = document.getElementById('theme-toggle');
 const ACT1_COMPLETE_KEY = 'jhin-act-1-complete';
+const THEME_KEY = 'jhin-theme';
 let stories;
 let currentAct;
 let currentState;
+
+function setTheme(theme) {
+  document.body.dataset.bsTheme = theme;
+  const isDark = theme === 'dark';
+  themeToggleEl.setAttribute('aria-pressed', String(isDark));
+  themeToggleEl.setAttribute('aria-label', `Cambiar a modo ${isDark ? 'claro' : 'oscuro'}`);
+  themeToggleEl.textContent = isDark ? '☼ Claro' : '☾ Oscuro';
+}
+
+const savedTheme = localStorage.getItem(THEME_KEY);
+setTheme(savedTheme === 'light' ? 'light' : 'dark');
+themeToggleEl.addEventListener('click', () => {
+  const nextTheme = document.body.dataset.bsTheme === 'dark' ? 'light' : 'dark';
+  setTheme(nextTheme);
+  localStorage.setItem(THEME_KEY, nextTheme);
+});
 
 document.addEventListener('keydown', (e) => {
   if (/^[1-9]$/.test(e.key)) {
