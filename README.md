@@ -22,6 +22,7 @@ Abre `http://localhost:3000` en el navegador. El servidor sirve los archivos est
 
 - Los datos de los actos viven en `public/acto-1-caceria-jhin.json` y `public/acto-2-caceria-jhin.json`.
 - Las elecciones se cargan directamente desde esos archivos.
+- El tema oscuro usa una paleta verde Matrix con scanlines y viñeta CRT, conservando el marco retro de Windows 95.
 - El desbloqueo del Acto II se guarda en `localStorage` del navegador. Se conserva en ese navegador, pero no se sincroniza entre dispositivos ni perfiles.
 - Para reiniciar el desbloqueo, borra la clave `jhin-act-1-complete` del almacenamiento local del sitio.
 
