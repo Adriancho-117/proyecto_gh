@@ -78,14 +78,14 @@ async function start() {
     showMenu();
   } catch (error) {
     console.error('No se pudo cargar la historia:', error);
-    stageEl.innerHTML = '';
+    stageEl.replaceChildren();
     stageEl.setAttribute('aria-busy', 'false');
     const alert = document.createElement('div');
     alert.className = 'alert alert-danger feedback-message mb-0';
     alert.setAttribute('role', 'alert');
     alert.textContent = 'No se pudo cargar la historia. Verifica tu conexión o recarga la página.';
     stageEl.appendChild(alert);
-    choicesEl.innerHTML = '';
+    choicesEl.replaceChildren();
   }
 }
 

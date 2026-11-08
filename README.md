@@ -5,8 +5,8 @@ Aventura narrativa interactiva construida con HTML, CSS y JavaScript ES Modules.
 ## Cumplimiento técnico con la rúbrica
 
 - JavaScript moderno y módulos ES: el proyecto usa `import`/`export`, `let`/`const`, comparaciones estrictas y módulos para lógica, render y estado.
-- Node.js y Express: el servidor está en `server.js` y expone rutas JSON para cada acto.
-- Conexión cliente-servidor: el frontend consulta la API del backend con `fetch` y `async/await` en lugar de cargar archivos locales directamente.
+- Node.js y Express: el servidor está en `server.js` y sirve la aplicación y sus archivos JSON estáticos.
+- Conexión cliente-servidor: el frontend carga los archivos JSON servidos desde `public/` con `fetch` y `async/await`.
 - Seguridad: CORS limitado, validación en el servidor y manejo seguro de entradas; no se usa `innerHTML` con contenido dinámico.
 - Persistencia: `localStorage` permite desbloquear el Acto II y guardar la preferencia entre el tema claro y el tema oscuro CRT Matrix; `sessionStorage` guarda el último progreso del usuario en la sesión actual.
 - Bootstrap y diseño adaptable: el proyecto usa Bootstrap 5, `meta viewport` y un layout responsivo con diseño de juego.
@@ -42,8 +42,8 @@ El puerto puede ajustarse con `PORT`, y la lista de orígenes permitidos se defi
 
 ## Historia y progreso
 
-- Los datos de los actos viven en `public/acto_1_sombras_de_zhyun.json` y `public/acto-2-caceria-jhin.json`.
-- El frontend carga cada acto desde la API del servidor (`/api/actos/:id`).
+- Los datos de los actos viven en `public/acto_1_sombras_de_zhyun .json` y `public/acto_2_caceria-jhin.json`.
+- El frontend carga cada acto mediante su ruta de archivo estático: `/acto_1_sombras_de_zhyun%20.json` y `/acto_2_caceria-jhin.json`.
 - El desbloqueo del Acto II se guarda en `localStorage` del navegador.
 - El tema oscuro es CRT Matrix: combina scanlines y viñeta con el marco retro de Windows 95. El botón de tema alterna entre este modo y el tema claro, y recuerda la preferencia en `localStorage`.
 - El último avance del usuario se conserva temporalmente en `sessionStorage` para reiniciar sesión actual sin perder el hilo de la historia.
@@ -51,7 +51,6 @@ El puerto puede ajustarse con `PORT`, y la lista de orígenes permitidos se defi
 
 ## Estructura del proyecto
 
-- `server.js`: servidor Express y API REST.
+- `server.js`: servidor Express para los archivos estáticos de `public/`.
 - `public/`: interfaz, estilos, módulos del juego y datos narrativos.
 - `README.md`: documentación del proyecto y plan de trabajo.
-

@@ -44,8 +44,8 @@ async function loadAct(file) {
 
 export async function loadStories() {
   const [act1, act2] = await Promise.all([
-    loadAct('./jhin_acto_1_sombras_de_zhyun%20.json'),
-    loadAct('./acto-2-caceria-jhin.json')
+    loadAct('./acto_1_sombras_de_zhyun%20.json'),
+    loadAct('./acto_2_caceria-jhin.json')
   ]);
 
   return { title: STORY_TITLE, act1, act2 };

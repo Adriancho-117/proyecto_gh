@@ -21,7 +21,7 @@ function addButton(label, action, index = '›', className = 'choice-btn') {
 }
 
 export function renderNode(node, onChoice, onMenu) {
-  stage.innerHTML = '';
+  stage.replaceChildren();
   const h2 = document.createElement('h2');
   h2.textContent = node.title;
   stage.appendChild(h2);
@@ -37,7 +37,7 @@ export function renderNode(node, onChoice, onMenu) {
   paragraph.textContent = node.text;
   stage.appendChild(paragraph);
   stage.scrollTop = 0;
-  choices.innerHTML = '';
+  choices.replaceChildren();
   if (node.isEnding) {
     addButton('Volver al menú principal', onMenu, '↺', 'restart-btn');
     return;
@@ -49,7 +49,7 @@ export function renderNode(node, onChoice, onMenu) {
 }
 
 export function renderMenu(stories, act2Unlocked, onStartAct) {
-  stage.innerHTML = '';
+  stage.replaceChildren();
   const h2 = document.createElement('h2');
   h2.className = 'menu-title';
   h2.textContent = stories.title;
@@ -60,7 +60,7 @@ export function renderMenu(stories, act2Unlocked, onStartAct) {
   intro.textContent = 'Una historia interactiva de decisiones, sombras y cacería en Jonia.';
   stage.appendChild(intro);
   stage.scrollTop = 0;
-  choices.innerHTML = '';
+  choices.replaceChildren();
   addButton(`${stories.act1.name} — Comenzar historia`, () => onStartAct(1));
 
   if (act2Unlocked) {
